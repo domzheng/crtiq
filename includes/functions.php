@@ -67,8 +67,11 @@
         {
             try
             {
+                // for local development
+                $handle = new PDO("mysql:dbname=crtiq; host=localhost", "root", "root");
+
                 // connect to database
-                $handle = new PDO("mysql:dbname=crtiq_db;host=mysql.crtiq.com", "crtiq13", "schutts");
+                // $handle = new PDO("mysql:dbname=crtiq_db;host=mysql.crtiq.com", "crtiq13", "schutts");
 
                 // ensure that PDO::prepare returns false when passed invalid SQL
                 $handle->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); 
