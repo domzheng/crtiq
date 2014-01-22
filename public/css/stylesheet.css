@@ -254,8 +254,9 @@ img.aboutthumb{
 
 #welcome{
 	width:40%;
-	margin-left: 10%;
-	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 	font-weight: 400px;
 	margin-top: 14%;
 	overflow: visible;
@@ -263,7 +264,7 @@ img.aboutthumb{
 }
 
 #welcome h4{
-	margin-left: -18px;
+	margin: auto;
 }
 
 #welcome h1{
@@ -533,8 +534,9 @@ textarea.descriptionfield::-webkit-input-placeholder {
 
 #login{
     width:30%;
-    margin-left: 8.4%;
-    margin-top: 14%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
     height: 60%;
     text-align: left;
     font-weight: 400;
@@ -545,20 +547,56 @@ textarea.descriptionfield::-webkit-input-placeholder {
 }
 
 
-#login h4{
-	margin-left: -20px;
+#login img{
+	margin-left: auto;
+	margin-bottom: 5%;
+	width: 100%;
+	height: auto;
 }
 
 #darkener{
     overflow: hidden;
     z-index: -1;
     position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0px;
     left: 0px;
     display: block;
-    background-color: rgba(0,0,0,.35);
+    opacity: .55;
+}
+
+#darkener img{
+	width: 100%;
+	height: 100%;
+}
+
+#fpcredits{
+	background-color: red;
+	bottom: 0px;
+	left: 0px;
+	position: fixed;
+	width: 24%;
+	height: 12%;
+}
+
+#fpcredits img{
+	height: 100%;
+	width: auto;
+	position: absolute;
+	display: block;
+}
+
+.fptitle{
+	height: 100%;
+	background-color: green;
+	display: inline-block;
+}
+
+.fptitle h1{
+	background-color: blue;
+}
+
+.fptitle h2{
+	background-color: blue;
 }
 
 .profile-input{
@@ -583,6 +621,7 @@ textarea.descriptionfield::-webkit-input-placeholder {
     text-align: center;
     margin-left: 0%;
     width: 100%;
+    margin-top: -7%;
 }
 
 .login-input input{
@@ -644,6 +683,7 @@ textarea.descriptionfield::-webkit-input-placeholder {
 
 .submit-button{
 	background-color: rgba(200,200,200,.2);
+	border-color: transparent;
 }
 
 .submit-button:hover{
