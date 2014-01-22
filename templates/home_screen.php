@@ -40,13 +40,12 @@
             </div>
             <h1>or <a href="signup.php">sign up!</a></h1>
         </form>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
     <div id="fpcredits">
         <img src="img/harrypotterthumb.png" alt="">
         <div class="fptitle">
-          <h1>LUMOS</h1>
+          <h1>Lumos</h1>
           <h2>by Harry Potter</h2>
         </div>
     </div>
