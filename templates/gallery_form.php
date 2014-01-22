@@ -11,19 +11,19 @@
   });
 </script>
 <script type='text/javascript'>
-    $(document).ready(function(){
-        $("div.a").hover(
-        function() {
-            $(this).stop().animate({"opacity": ".4"}, "slow");
-            $(this).find('.message').fadeIn(600);
-        },
-        function() {
-             $(this).stop().animate({"opacity": "1"}, "slow");
-             $(this).find('.message').fadeOut(500);
-        });
+//     $(document).ready(function(){
+//         $("div.a").hover(
+//         function() {
+//             $(this).stop().animate({"opacity": ".4"}, "slow");
+//             $(this).find('.message').fadeIn(600);
+//         },
+//         function() {
+//              $(this).stop().animate({"opacity": "1"}, "slow");
+//              $(this).find('.message').fadeOut(500);
+//         });
 
-    });
-</script>
+//     });
+// </script>
 
 <div id="container">
   <!-- === === === === === HEADER === === === === === -->
@@ -49,8 +49,8 @@
     </div>
 
     <!-- === === === === === GALLERY === === === === === -->
+  <?php if (isset($user_info)):?>
     <div class="usersidebar">
-        <?php if (isset($user_info)):?>
           <div class="username">
           <?php
               $counter = 0;
@@ -76,26 +76,30 @@
               <p class="userlikes"><?= htmlspecialchars($user_info["likes"])?> likes</p>
               <p class="userchecks"></p>
           </div>
-        <?php else: ?>
-          <div class="browsemessage"> Browse through other's work and select one to critique! </div>
-        <?php endif ?>
         <?php if (!empty($user_info["profile_url"])):?>
             <h1 class="about-me title">ABOUT ME</h1>
             <p class="about-me"><?=$user_info["description"]?></p>
         <?php endif ?>
     </div>
+    <div class="profile_container">
+        <?php
+            foreach($user_images as $image)
+            {
+                print("<a href=\"critique.php?image_id={$image['id']}\" class=\"gallery-img\" style=\"background-image: url('{$image["url"]}')\">");
+                print("<span class='message'>{$image["title"]}</span></a>");
+            }
+        ?>
+        <a href="upload.php" class="gallery-img" style="background-image: url('img/upload_gallery_plus.png');" title="Upload a new photograph."></a>
+    </div>
+  <?php else: ?>
     <div class="gallery_container">
         <?php
             foreach($user_images as $image)
             {
-                print("<a href='critique.php?image_id={$image["id"]}'class='gallery-img'>");
-                print("<div class='img-container a'><img src='{$image["url"]}'>");
-                print("<span class='message'>{$image["title"]}</span></div></a>");
+                print("<a href=\"critique.php?image_id={$image['id']}\" class=\"gallery-img\" style=\"background-image: url('{$image["url"]}')\">");
+                print("<span class='message'>{$image["title"]}</span></a>");
             }
         ?>
-        <?php if (isset($user_info)):?>
-            <a href="upload.php" class="gallery-img add-img"><img class="a" src="img/upload_gallery_plus.png"></a>
-        <?php endif ?>
     </div>
-
+  <?php endif ?>
 </div>

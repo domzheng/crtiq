@@ -1,6 +1,5 @@
 <body>
 <div class="darkener"></div>
-
 <script>
   $.backstretch([
     '<?= htmlspecialchars($background_url) ?>'
@@ -82,7 +81,7 @@
     </div>
 
     <!-- === === === === === PROFILE FORM === === === === === -->
-    <div class="gallery_container">
+    <div class="profile_container">
       <div id="profileform">
           <form class="profile-input" method="post" enctype="multipart/form-data" action="profile.php">
               <div id="profileupdate">
@@ -90,7 +89,7 @@
                       <p class='apologyupload'><?= htmlspecialchars($message)?></p>
                   <?php endif ?>
                   <div class="upload-title-container">
-                      <input type="text" name="uploadreadonly" placeholder="Upload your Photo" class="white-trans" readonly></input>
+                      <input type="text" name="uploadreadonly" placeholder="Upload a new Photo" class="white-trans" readonly></input>
                   </div>
                   <label class="filebutton">
                     +
@@ -98,22 +97,36 @@
                   </label>
 
                   <div class="upload-input-container">
-                    <input type="text" name="fullname" placeholder="Full Name" class="white-trans"></input>
+                    <input type="text" name="fullname" placeholder="Full Name" 
+                      <?php if (!empty($user_info["fullname"])):?>
+                        value='<?=htmlspecialchars($user_info["fullname"])?>'
+                      <?php endif ?>
+                      class="white-trans"></input>
                   </div>
 
                   <div class="upload-input-container">
-                    <input type="text" name="hometown" placeholder="Hometown eg. Baltimore, MD" class ="white-trans"></input>
+                    <input type="text" name="hometown" placeholder="Hometown eg. Baltimore, MD" 
+                    <?php if (!empty($user_info["hometown"])):?>
+                      value='<?=htmlspecialchars($user_info["hometown"])?>'
+                    <?php endif ?>
+                    class ="white-trans"></input>
                   </div>
 
                   <div class="upload-input-container">
-                    <input type="text" name="email" placeholder="Email" class ="white-trans"></input>
+                    <input type="text" name="email" placeholder="Email" 
+                    <?php if (!empty($user_info["email"])):?>
+                      value='<?=htmlspecialchars($user_info["email"])?>'
+                    <?php endif ?>
+                    class="white-trans"></input>
                   </div>
 
               </div>
 
               <div id="profileupdate2">
                 
-                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less" cols="25" rows="5"></textarea>  
+                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less" cols="25" rows="5">
+                  <?php if(!empty($user_info["description"])):?><?php print("{$user_info["description"]}")?><?php endif ?>
+                 </textarea>  
 
                   <div class="upload-submit-container submit-button">
                     <input type="submit" name="submit_upload" value="Submit" class="gray-trans"></submit>
