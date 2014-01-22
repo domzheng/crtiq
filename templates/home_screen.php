@@ -45,8 +45,8 @@
     <div id="fpcredits">
         <img src="img/harrypotterthumb.png" alt="">
         <div class="fptitle">
-          <h1>Lumos</h1>
-          <h2>by Harry Potter</h2>
+          <h1><a href="\critique.php?image_id=15" title="">Lumos</a></h1>
+          <h2>by <a href="display.php" title="">Daniel Yue</a></h2>
         </div>
     </div>
 
