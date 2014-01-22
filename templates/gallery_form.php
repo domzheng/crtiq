@@ -34,8 +34,9 @@
         
         <div id="nav">
             <ul>
-                <li><a href="home.php" title="Back to Home">HOME</a></li>
-                <li><a href="browse.php" title="Browse other's work">BROWSE</a></li>
+                <li><a href="home.php" title="Back to your profile">YOU</a></li>
+                <li><a href="others.php" title="Browse other users">OTHERS</a></li>
+                <li><a href="browse.php" title="Browse other users' work">BROWSE</a></li>
                 <li><a href="about.php" title="About crtIQ">ABOUT</a></li>
             </ul>
         </div>
@@ -66,9 +67,9 @@
           ?>
           </div>
           <?php if (!empty($user_info["profile_url"])):?>
-              <div class="usericon"><img src= '<?=$user_info["profile_url"]?>' ></div>
+              <div class="usericon" style="background-image: url('<?=$user_info["profile_url"]?>');"></div>
           <?php else: ?>
-              <div class="usericon"><img src="img/man-silhouette-svg-med-copy.png"></div>
+              <div class="usericon" style="background-image: url('img/man-silhouette-svg-med-copy.png');"></div>
           <?php endif ?>
           <div class="userbasicinfo">
               <p><?= htmlspecialchars($user_info["hometown"])?> &nbsp&nbsp&nbsp&nbsp&nbsp|

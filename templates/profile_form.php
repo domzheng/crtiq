@@ -33,8 +33,9 @@
         
         <div id="nav">
             <ul>
-                <li><a href="home.php" title="Back to Home">HOME</a></li>
-                <li><a href="browse.php" title="Browse other's work">BROWSE</a></li>
+                <li><a href="home.php" title="Back to your profile">YOU</a></li>
+                <li><a href="others.php" title="Browse other users">OTHERS</a></li>
+                <li><a href="browse.php" title="Browse other users' work">BROWSE</a></li>
                 <li><a href="about.php" title="About crtIQ">ABOUT</a></li>
             </ul>
         </div>
