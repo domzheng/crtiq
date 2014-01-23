@@ -209,7 +209,7 @@ img.aboutthumb{
 }
 
 #nav{
-	margin-top: 0px;
+	margin-top: -11px;
 	width: 50%;
 	display: inline-block;
 	vertical-align: middle;
@@ -217,6 +217,16 @@ img.aboutthumb{
 	outline-width: 1px;
 	outline-color: blue;
 	letter-spacing: 2.75px;
+}
+
+.logo-nav{
+	height: 32px;
+	background-image: url('../img/crtiq_logo_v2.png');
+	width: 90px;
+	background-size: cover;
+	display: inline-block;
+	margin-top: 9px;
+	margin-left:60px;
 }
 
 #nav li:hover{

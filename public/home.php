@@ -8,7 +8,7 @@
     {
         $user_images = query("SELECT id, url, title FROM images WHERE user_id = ? ORDER BY RAND()", $_SESSION["id"]);
         $background_url_array = query("SELECT url FROM images WHERE user_id = ? ORDER BY RAND() LIMIT 1", $_SESSION["id"]);
-        if (!empty([0]["url"])){
+        if (!empty($background_url_array)){
             $background_url = $background_url_array[0]["url"];
         }
         $user_info = query("SELECT * FROM users WHERE id = ?", $_SESSION["id"])[0];
