@@ -47,15 +47,10 @@
             print("<img src=\"{$backgroundimage[3]}\" alt=\"\">");
         ?>
         <div class="fptitle">
-<<<<<<< HEAD
           <?php
             print("<h1>{$backgroundimage[1]}</h1>");
             print("<h2>{$backgroundimage[2]}</h2>");
           ?>
-=======
-          <h1><a href="\critique.php?image_id=15" title="">Lumos</a></h1>
-          <h2>by <a href="display.php" title="">Daniel Yue</a></h2>
->>>>>>> 6cd77cc26bac200488ed470b2f03be1459fa20cb
         </div>
     </div>
 

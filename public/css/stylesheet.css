@@ -599,11 +599,7 @@ textarea.descriptionfield::-webkit-input-placeholder {
 }
 
 .fptitle h1{
-<<<<<<< HEAD
 	margin-top: 20px;
-=======
-	margin-top: 14%;
->>>>>>> 6cd77cc26bac200488ed470b2f03be1459fa20cb
     color: white;
     font-family: "Helvetica", sans-serif;
     text-transform: uppercase;
