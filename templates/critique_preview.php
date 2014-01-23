@@ -1,16 +1,11 @@
 <link rel="stylesheet" href="css/hint.css"></link>
 
-
-
-
 <body>
 
 <div id="container">
   <!-- === === === === === HEADER === === === === === -->
     <div id="header">
-        <h1>
-            <a href="home.php" title="Back to Home"><img src="img/crtiq_logo.png" alt="CrtIQ" /></a>
-        </h1>
+        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a>
         
         <div id="nav">
             <ul>
