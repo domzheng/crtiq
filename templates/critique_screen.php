@@ -52,7 +52,7 @@
         <?php if (!isset($quality)): ?>
             <div class="description">
                 <h1>DESCRIPTION</h1>
-                <div class="scrollbox"><p><?=print($image_data["description"]);?></p></div>
+                <div class="scrollbox"><p><?=htmlspecialchars($image_data["description"]);?></p></div>
             </div>
             <hr size=".1px" width="90%" align="center">
 

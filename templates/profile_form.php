@@ -125,8 +125,14 @@
 
               <div id="profileupdate2">
                 
-                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less" cols="25" rows="5">
-                  <?php if(!empty($user_info["description"])):?><?php print("{$user_info["description"]}")?><?php endif ?>
+                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less" cols="25" rows="5" maxlength="140">
+                  hello
+<!--                   <?php 
+                    if(!empty($user_info["description"])){
+                      print("working");
+                      print("{$user_info["description"]}");
+                    }
+                  ?> -->
                  </textarea>  
 
                   <div class="upload-submit-container submit-button">
