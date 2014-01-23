@@ -753,7 +753,9 @@ textarea.descriptionfield::-webkit-input-placeholder {
 
 .usersidebar{
 	width: 20%;
-	height: 93%;
+	height: 100%;
+	bottom: -1px;
+	background-color: rgba(0,0,0,.4);
 	position: absolute;
 	display:inline-block;
 	float:left;
