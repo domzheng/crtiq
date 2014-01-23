@@ -5,7 +5,7 @@
  <script>
     $.backstretch([
         <?php
-            print ("'{$backgroundimage}'");
+            print ("'{$backgroundimage[0]}'");
         ?>
       ], {
         fade: 2500,      //Speed of Fade
@@ -43,10 +43,14 @@
     </div>
 
     <div id="fpcredits">
-        <img src="img/harrypotterthumb.png" alt="">
+        <?php
+            print("<img src=\"{$backgroundimage[3]}\" alt=\"\">");
+        ?>
         <div class="fptitle">
-          <h1>Lumos</h1>
-          <h2>by Harry Potter</h2>
+          <?php
+            print("<h1>{$backgroundimage[1]}</h1>");
+            print("<h2>{$backgroundimage[2]}</h2>");
+          ?>
         </div>
     </div>
 
