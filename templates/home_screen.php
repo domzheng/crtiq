@@ -48,7 +48,7 @@
         ?>
         <div class="fptitle">
           <?php
-            print("<h1>{$backgroundimage[1]}</h1>");
+            print("<a href=\"critique.php?image_id={$backgroundimage[4]}\"><h1>{$backgroundimage[1]}</h1></a>");
             print("<h2>{$backgroundimage[2]}</h2>");
           ?>
         </div>

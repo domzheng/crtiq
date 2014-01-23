@@ -8,7 +8,6 @@
         redirect("/home.php");
     }
     
-    // if form was submitted
     $users = query("SELECT id, fullname, profile_url, likes FROM users WHERE id != ? ORDER BY RAND()", $_SESSION["id"]);
 
     $counter = 0;
