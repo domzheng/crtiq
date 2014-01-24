@@ -28,7 +28,7 @@
 
     <div id="blanket" style="display:none"></div>
     <div id="popUpDiv" style="display:none">
-        <h1>Welcome!</h1>
+        <h1 class="welcome-beginning">Welcome!</h1>
         <h2>Please submit a critique <br> to access your profile.</h2>s
         <a href="#" onclick="popup('popUpDiv')"><img src="img/gotitbutton.png" /></a>
     </div>
@@ -42,18 +42,15 @@
     <div id="container">
    <!-- === === === === === HEADER === === === === === -->
     <div id="header">
-        <h1>
-            <a href="home.php" title="Back to Home"><img src="img/crtiq_logo.png" alt="CrtIQ" /></a>
-        </h1>
-        
+        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a> 
         <div id="nav">
             <ul>
-                <li><a href="home.php" title="Back to Home">HOME</a></li>
-                <li><a href="browse.php" title="Browse other's work">BROWSE</a></li>
+                <li><a href="home.php" title="Back to your profile">YOU</a></li>
+                <li><a href="others.php" title="Browse other users">OTHERS</a></li>
+                <li><a href="browse.php" title="Browse other users' work">BROWSE</a></li>
                 <li><a href="about.php" title="About crtIQ">ABOUT</a></li>
             </ul>
         </div>
-
         <h1 class="pull-right" style="margin-right:4%">
             <a href="logout.php" title="Logout"><img src="img/logout.png" style="height:24px;" alt="Q" /></a>
         </h1>

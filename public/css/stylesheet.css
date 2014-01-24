@@ -4,6 +4,10 @@ body{
 	height: 100%;
 }
 
+h1{
+	line-height: 44px !important;
+}
+
 #blanket{
 	background-color:rgba(0,0,0,0.65);
 	*background:none;
@@ -913,23 +917,26 @@ p.userchecks{
 }*/
 
 .display{
-	width: 90%;
+	width: 1300px;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	overflow: hidden;
 	display: block;
-	margin-top: 50px;
+	background-color: rgba(0,0,0,.2);
 }
 
 .image_container{
-	width: 100%;
-	height: 80%;
+	width: 940px;
+	height: 100%;
+	margin-top: 54px;
+
 }
 
-.image_container img{
-	width: 100%;
-	height: auto;
+.image_box{
+	height: 80%;
+	width: 940px;
+	background-size: cover;
 }
 
 .fixed_label{
@@ -940,43 +947,63 @@ p.userchecks{
 	height: 12%;
 	width: 100%;
 }
+.cover{
+	width:100%;
+	height: 100.1%;
+	background-color: rgba(0,0,0,.7);
+}
 
 .image_label{
-	width: 98%;
-	height: 12%;
+	width: 940px;
+	height: 20%;
 	text-align: left;
-	position: fixed;
-	margin-left: 1%;
+	padding-left: 2.5%;
 }
 
 .image_label h1{
-	margin-left: 0%;
-	font-size: 22pt;
-	display: inline-block;
-	font-family: 'Rockwell', sans-serif;
-	color: white;
-	font-weight: lighter;
+	color: rgb(255, 255, 255) !important;
+	display: inline-block !important;
+	font-family: Rockwell, sans-serif !important;
+	font-size: 29px !important;
+	font-weight: 100 !important;
+	height: 44px !important;
+	line-height: 44px !important;
+	margin-bottom: 10px !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-top: 10px !important;
+	text-align: left !important;
 }
 
 .image_label h2{
-	margin-left: 1%;
-	font-style: italic;
-	font-size: 15pt;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: lighter;
-	color: white;
-	display: inline-block;
-	letter-spacing: 1px;
+	color: rgb(255, 255, 255) !important;
+	display: inline-block !important;
+	font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+	font-size: 20px !important;
+	font-style: italic !important;
+	font-weight: 100 !important;
+	height: 22px !important;
+	letter-spacing: 1px !important;
+	line-height: 22px !important;
+	margin-bottom: 10px !important;
+	margin-left: 9.15625px !important;
+	margin-top: 20px !important;
+	text-align: left !important;
 }
 
 .image_label h3{
-	margin-top: -0.5%;
-	font-size: 13pt;
-	font-family: "Helvetica Neue", sans-serif;
-	font-weight: lighter;
-	color: white;
-	display: block;
-	letter-spacing: 1px;
+	color: rgb(255, 255, 255) !important;
+	display: block !important;
+	font-family: 'Helvetica Neue', sans-serif !important;
+	font-size: 17px !important;
+	font-weight: 100 !important;
+	height: 18px !important;
+	letter-spacing: 1px !important;
+	line-height: 19.066667556762695px !important;
+	margin-bottom: 10px !important;
+	margin-top: -4.578125px !important;
+	text-align: left !important;
+	width: 916.5px !important;
 }
 
 .detailsicon{
@@ -1013,15 +1040,14 @@ p.userchecks{
 }
 
 .data{	
-	width: 25%;
+	width: 360px;
 	height: 94%;
-	float:right;
+	float:none;
 	position: absolute;
-	background-color: rgba(0,0,0,.8);
 	display: inline-block;
 	overflow: scroll;
 	bottom: -1px;
-	margin-left: 70%;
+	margin-left: 940px;
 
 /*	width:25%;
 	height: 93.25%;
@@ -1041,7 +1067,6 @@ p.userchecks{
 	font-weight: bolder;
 	font-size: 14px;
 	letter-spacing: px;
-	padding-bottom: 4%;
 	margin-left: 10%;
 }
 
@@ -1065,7 +1090,20 @@ p.userchecks{
 }
 
 .description{
+	min-height: 100px;
+}
+.critique-submission{
 	min-height: 25%;
+}
+
+.critique-submission h1{
+	margin-top: 8%;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 14px;
+	font-weight: 200;
+	letter-spacing: 3px;
+	line-height: 25px !important;
+	padding-bottom: 4%;
 }
 
 .description h1{
@@ -1074,6 +1112,8 @@ p.userchecks{
 	font-size: 14px;
 	font-weight: bolder;
 	letter-spacing: 3px;
+	line-height: 25px !important;
+	padding-bottom: 0;
 }
 
 .description h2{
@@ -1122,18 +1162,32 @@ p.userchecks{
 }
 
 .critique-text{
+	margin-top: 30px;
 	display: block;
-	height: 300px;
+	height: 200px;
 	width: 80%;
 	margin-right: auto;
 	margin-left: auto;
 	background-color: rgba(0,0,0,0);
 	color: white;
 	overflow: scroll;
+	border: 10px solid;
+	border-color: rgba(255,255,255,.1);
+	padding:10px;
+}
+
+.sliderholder{
+	width: 100%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.critique-text:hover{
+	border-color: rgba(100,100,100,.5);
 }
 
 .shot-details h1{
-	margin-top: 10%;
+	margin-top: 0px;
 	font-family: 'Helvetica', sans-serif;
 	font-size: 14px;
 	font-weight: bolder;
@@ -1155,32 +1209,35 @@ td.data-title{
 }
 
 .judgement{
-	margin-top: 12%;
+	margin-top: 0px;
 }
 
 .judgement h1{
-	margin-top: 10%;
+	margin-top: 0px;
 	font-family: 'Helvetica', sans-serif;
 	font-size: 14px;
 	font-weight: bolder;
 	letter-spacing: 3px;
-	padding-bottom: 6%;
 }
 
 .thumbs{
-	height: 30%;
-	width: 45%;
+	height: 50px;
+	width: 50px;
 	display: inline-block;
 	overflow: hidden;
 	text-align: center;
 }
 
-.thumbs img{
-	width: 30%;
+.up{
+	margin-left: 100px;
+	background-image: url('../img/thumbs-up.png');
+	background-size: cover;
 }
 
-.up{
-	margin-left: 5%;
+.down{
+	margin-left: 50px;
+	background-image: url('../img/thumbs-down.png');
+	background-size: cover;
 }
 
 .writing{
@@ -1206,6 +1263,7 @@ td.data-title{
 }
 
 .critique_display h1{
+	margin-top: 0 !important;
 	padding-bottom: 0;
 	letter-spacing: 3px;
 }
@@ -1230,6 +1288,17 @@ td.data-title{
     width: 40%;
     display: block;
     color: white;
+    border: none;
+	background-color: rgba(255,255,255,.1);
+	line-height: 44px;
+}
+
+.critique-text-button:hover{
+    background-color: rgba(100,100,100,.5);
+}
+
+.critique-text-button:active{
+    background-color: rgba(100,100,100,.8);
 }
 
 .critique-text-1{
@@ -1411,6 +1480,29 @@ td.data-title{
 	display:block;
 	background-color: white;
 	opacity: .3;
+}
+
+.thumbswhy{
+	height: 70px;
+	width: 70px;
+	margin: 0 auto;
+	margin-top: 20px;
+	background-size: cover;
+}
+
+hr{
+	width:40%; 
+	border:1px solid rgba(255,255,255,.4);
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.welcome-beginning{
+	margin-bottom: 35px;
+}
+
+.login-label{
+	line-height: 18.700000762939453px !important;
 }
 
 /*.inside{

@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="CrtIQ - Intelligent Feedback"/>
+    <meta name="apple-mobile-web-app-title" content="#">  <!-- this changes the default name when on the homescreen in apple-->
+
+    <title>Fake3</title>
+
+    <link rel="shortcut icon" href="http://www.crtiq.com/img/favicon.png"> <!-- this is the small photo in the tab -->
+    <link rel="apple-touch-icon" href="#.png" />  <!-- this uploads the icon for apple's homescreen shortcuts-->
+
+    <link href="css/bootstrap.css" rel="stylesheet"/> <!-- if folder /css folder is in the same spot as the html file-->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/stylesheet.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/jquery.backstretch.js"></script>
+</head>
+
 <body>
  <script>
     $.backstretch([
@@ -17,7 +45,7 @@
 <div id="container">
   <!-- === === === === === HEADER === === === === === -->
     <div id="header">
-        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a> 
+        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a>
         <div id="nav">
             <ul>
                 <li><a href="home.php" title="Back to your profile">YOU</a></li>
@@ -60,100 +88,17 @@
     <div class="cover">
         <div class="display">
             <div class="image_container">
-                <div class="image_box" style="background-image:url('<?=htmlspecialchars($image_data["url"])?>');"></div>
+                <div class="image_box" style="background-image:url('img/background/DSC_0091_cropped.jpg');"></div>
                 <div class="image_label">
-                    <h1><?=htmlspecialchars($image_data["title"])?></h1>
-                    <h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2>
-                    <h3><?=htmlspecialchars($image_data["date"])?></h3>
+                    <h1>Image</h1>
+                    <h2> by Daniel Yue </h2>
+                    <h3> March 1, 2013 </h3>
                 </div>
             </div>
             <div class="data">
-                <?php if (!isset($quality)): ?>
-                    <div class="description">
-                        <h1>DESCRIPTION</h1>
-                        <div class="scrollbox"><p><?=htmlspecialchars($image_data["description"]);?></p></div>
-                    </div>
-                    <hr size=".1px" align="center">
-                    <div class="shot-details">
-                    <h1>SHOT DETAILS</h1>
-                    <table class="metadata">
-                        <?php if (!empty($image_data["camera"])): ?>
-                        <tr>
-                            <td class="data-title">CAMERA &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["camera"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <?php if (!empty($image_data["lens"])): ?>
-                        <tr>
-                            <td class="data-title">LENS &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["lens"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <?php if (!empty($image_data["aperture"])): ?>
-                        <tr>
-                            <td class="data-title">APERTURE &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["aperture"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <?php if (!empty($image_data["shutter"])): ?>
-                        <tr>
-                            <td class="data-title">SHUTTER &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["shutter"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <?php if (!empty($image_data["iso"])): ?>
-                        <tr>
-                            <td class="data-title">ISO &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["iso"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <?php if (!empty($image_data["location"])): ?>
-                        <tr>
-                            <td class="data-title">LOCATION &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["location"])?></td>
-                        </tr>
-                        <?php endif ?>
-                        <tr>
-                            <td class="data-title">LIKES &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["likes"])?></td>
-                        </tr>
-                        <tr>
-                            <td class="data-title">DISLIKES &nbsp</td>
-                            <td><?=htmlspecialchars($image_data["dislikes"])?></td>
-                        </tr>
-                    </table>
-                    </div>
-                    <hr size=".1px" align="center">
-                    <div class="judgement">
-                        <h1>YOUR CRITIQUE</h1>
-                        <a <?= print("href='critique.php?quality=1&image_id=" . $image_data["id"] . "'") ?> title="Good"><div class="thumbs up"></div></a>
-                        <a <?= print("href='critique.php?quality=2&image_id=" . $image_data["id"] . "'") ?> title="Bad"><div class="thumbs down"></div></a>
-                    </div>
-                    <?php if (!empty($critiques)): ?>
-                        <hr size=".1px" width="90%" align="center">
-                        <div class="critique_display">
-                            <h1>CRITIQUES</h1>
-                            <?php
-                                $counter = count($critiques) - 1;
-                                foreach ($critiques as $critique)
-                                {
-                                    print("<h2>{$critiques[$counter]["writer"]},</h2>");
-                                    print("<h3>&nbsp{$critiques[$counter]["date"]}</h3>");
-                                    print("<p>{$critiques[$counter]["text"]}</p>");   
-                                    $counter--;   
-                                }             
-                            ?>
-                            <br><br><br>
-                        </div>
-                    <?php endif ?>
-                <?php else: ?>
                 <form class="critique-submission" method="POST" action="critique.php">
                     <h1 class="critique-text-1">You gave this photograph a</h1>
-                    <?php if ($quality == 1):?>
-                        <div class="thumbswhy" style="background-image: url('img/thumbs-up.png');"></div>
-                    <?php else: ?>
-                        <div class="thumbswhy" style="background-image: url('img/thumbs-down.png');"></div>
-                    <?php endif ?>
+                    <div class="thumbswhy" style="background-image: url('../public/img/thumbs-up.png');"></div>
                     <h1 class="critique-text-5">Why? Please respond thoughtfully.</h1>
 
                     <hr size=".1px" align="center">
@@ -190,12 +135,9 @@
                     <hr size=".1px" align="center">
                     <h1> Additional Comments </h1>
                     <textarea class="critique-text" name="critique-text" maxlength="500" placeholder="Please comment on the editing of this image."></textarea><br>
-                    <input type="hidden" name="image_id" value= <?=htmlspecialchars($image_data["id"])?> >
-                    <input type="hidden" name="quality" value= <?=htmlspecialchars($quality)?> >
-                    <input type="submit" name="critique" value="Submit Critique" class="gray-trans critique-text-button">
-                </form>
+                    <input type="submit" name="critique" value="Submit Critique" class="gray-trans critique-text-button"></submit>
                     <br><br><br>
-                <?php endif ?>
+                </form>
             </div>
         </div>
     </div>
@@ -219,3 +161,6 @@
         });
     </script>
 </div>
+</body>
+
+</html>

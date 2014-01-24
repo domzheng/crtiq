@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="CrtIQ - Intelligent Feedback"/>
+    <meta name="apple-mobile-web-app-title" content="#">  <!-- this changes the default name when on the homescreen in apple-->
+
+    <title>Fake2</title>
+
+    <link rel="shortcut icon" href="http://www.crtiq.com/img/favicon.png"> <!-- this is the small photo in the tab -->
+    <link rel="apple-touch-icon" href="#.png" />  <!-- this uploads the icon for apple's homescreen shortcuts-->
+
+    <link href="css/bootstrap.css" rel="stylesheet"/> <!-- if folder /css folder is in the same spot as the html file-->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/stylesheet.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/jquery.backstretch.js"></script>
+</head>
+
+<body>
+ <script>
+    $.backstretch([
+      "img/background/DSC_5655_bracketed.jpg",
+      "img/background/antelope_canyon_cropped.jpg",
+      "img/background/DSC_0091_cropped.jpg",
+      "img/background/dunster_sunrise_over_the_charles_cropped.jpg",
+      "img/background/sleeping_parents_cropped.jpg",
+      "img/background/wanderer_above_lake_powell_cropped.jpg"
+          //NOTE: The last element has NO comma
+      ], {
+        fade: 2000,      //Speed of Fade
+        duration: 15000  //Time of image display
+    });
+</script>
+
+<div id="container">
+  <!-- === === === === === HEADER === === === === === -->
+    <div id="header">
+        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a>
+        <div id="nav">
+            <ul>
+                <li><a href="home.php" title="Back to your profile">YOU</a></li>
+                <li><a href="others.php" title="Browse other users">OTHERS</a></li>
+                <li><a href="browse.php" title="Browse other users' work">BROWSE</a></li>
+                <li><a href="about.php" title="About crtIQ">ABOUT</a></li>
+            </ul>
+        </div>
+
+        <h1 class="pull-right" style="margin-right:4%">
+            <a href="logout.php" title="Logout"><img src="img/logout.png" style="height:24px;" alt="Q" /></a>
+        </h1>
+        <h1 class="pull-right">
+            <a href="profile.php" title="Profile Settings"><img src="img/settings.png" style="height:24px;" alt="Q" /></a>
+        </h1>
+    </div>
+
+    <!-- === === === === === WELCOME === === === === === -->
+    <div class="cover">
+        <div class="display">
+            <div class="image_container">
+                <div class="image_box" style="background-image:url('img/background/DSC_0091_cropped.jpg');"></div>
+                <div class="image_label">
+                    <h1>Image</h1>
+                    <h2> by Daniel Yue </h2>
+                    <h3> March 1, 2013 </h3>
+                </div>
+            </div>
+            <div class="data">
+                    <div class="description">
+                        <h1>DESCRIPTION</h1>
+                        <div class="scrollbox"><p>Pretty good, not gonna lie</p></div>
+                    </div>
+                    <hr size=".1px" align="center">
+
+                    <div class="shot-details">
+                        <h1>SHOT DETAILS</h1>
+                        <table class="metadata">
+                            <tr>
+                                <td class="data-title">CAMERA &nbsp</td>
+                                <td>Nikon D7000</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">LENS &nbsp</td>
+                                <td>Nikon 50mm' f/1.8</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">APERTURE &nbsp</td>
+                                <td>f/2.8</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">SHUTTER &nbsp</td>
+                                <td>1/200</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">ISO &nbsp</td>
+                                <td>800</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">LOCATION &nbsp</td>
+                                <td>Baltimore, MD</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">LIKES &nbsp</td>
+                                <td>39</td>
+                            </tr>
+                            <tr>
+                                <td class="data-title">DISLIKES &nbsp</td>
+                                <td>12</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr size=".1px" align="center">
+                    <div class="judgement">
+                        <h1>YOUR CRITIQUE</h1>
+                        <a href="" title="Good"><div class="thumbs up"></div></a>
+                        <a href="" title="Bad"><div class="thumbs down"></div></a>
+                    </div>
+                        <hr size=".1px" align="center">
+                        <div class="critique_display">
+                            <h1>CRITIQUES</h1>
+                            <h2>Daniel Yue,</h2>
+                            <h3>&nbsp December 2, 2013</h3>
+                            <p>This is my comment. I think it's pretty well done and thoughful</p>
+                            <h2>Daniel Yue,</h2>
+                            <h3>&nbsp December 2, 2013</h3>
+                            <p>This is my comment. I think it's pretty well done and thoughful</p>
+                            <h2>Daniel Yue,</h2>
+                            <h3>&nbsp December 2, 2013</h3>
+                            <p>This is my comment. I think it's pretty well done and thoughful</p>
+                            <h2>Daniel Yue,</h2>
+                            <h3>&nbsp December 2, 2013</h3>
+                            <p>This is my comment. I think it's pretty well done and thoughful</p>
+                        </div>
+                    <br><br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
