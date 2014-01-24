@@ -108,18 +108,37 @@
                         <a <?= print("href='critique.php?quality=1&image_id=" . $image_data["id"] . "'") ?> title="Good"><div class="thumbs up"></div></a>
                         <a <?= print("href='critique.php?quality=2&image_id=" . $image_data["id"] . "'") ?> title="Bad"><div class="thumbs down"></div></a>
                     </div>
+
                     <?php if (!empty($critiques)): ?>
                         <hr size=".1px" width="90%" align="center">
                         <div class="critique_display">
                             <h1>CRITIQUES</h1>
                             <?php
                                 $counter = count($critiques) - 1;
+                                $counter2 = 1;
                                 foreach ($critiques as $critique)
                                 {
-                                    print("<h2>{$critiques[$counter]["writer"]},</h2>");
-                                    print("<h3>&nbsp{$critiques[$counter]["date"]}</h3>");
-                                    print("<p>{$critiques[$counter]["text"]}</p>");   
+                                    print("<div align='center'><strong>{$counter2}</strong></div><h2><strong>");
+                                    print(htmlspecialchars($critiques[$counter]["writer"]));
+                                    print("</strong>,</h2><h3>&nbsp written on &nbsp");
+                                    print(htmlspecialchars($critiques[$counter]["date"]));
+                                    print("</h3><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>Composition: &nbsp");
+                                    print(htmlspecialchars($critiques[$counter]["compositionrating"]));
+                                    print("</p><p>");
+                                    print(htmlspecialchars($critiques[$counter]["compositioncomment"]));
+                                    print("</p></div><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>Colors: &nbsp");
+                                    print(htmlspecialchars($critiques[$counter]["colorsrating"]));
+                                    print("</p><p>");
+                                    print(htmlspecialchars($critiques[$counter]["colorscomment"]));
+                                    print("</p></div><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>Editing: &nbsp");
+                                    print(htmlspecialchars($critiques[$counter]["editingrating"]));
+                                    print("</p><p>");
+                                    print(htmlspecialchars($critiques[$counter]["editingcomment"]));
+                                    print("</p></div><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>General Observations:</p><p>");
+                                    print(htmlspecialchars($critiques[$counter]["text"]));
+                                    print("</p></div><br>");
                                     $counter--;   
+                                    $counter2++;
                                 }             
                             ?>
                             <br><br><br>
@@ -155,6 +174,9 @@
                         <div class="thumbswhy" style="background-image: url('img/thumbs-down.png');"></div>
                     <?php endif ?>
                     <h1 class="critique-text-5">Why? Please respond thoughtfully.</h1>
+                    <?php if (isset($message)):?>
+                        <p class='apology'> <?= htmlspecialchars($message) ?></p>
+                    <?php endif ?>
 
                     <hr size=".1px" align="center">
                     <h1> Composition </h1>
@@ -165,7 +187,12 @@
                             </div>
                         </div>
                     </div>
-                    <textarea class="critique-text" name="composition-text" maxlength="500" placeholder="Please comment on the composition of this image."></textarea><br>
+                    <input type="hidden" name="compositionslider" id="compositionslider" value="1">
+                    <textarea class="critique-text" name="composition-text" maxlength="500" 
+                    <?php if (!empty($post["composition-text"])):?>
+                        value='<?=htmlspecialchars($user_info["composition-text"])?>'
+                    <?php endif ?>
+                    placeholder="Please rate and comment on the composition of this image. (Required)"></textarea><br>
                     <hr size=".1px" align="center">
                     <h1> Colors </h1>
                     <div class="sliderholder">
@@ -175,7 +202,12 @@
                             </div>
                         </div>
                     </div>
-                    <textarea class="critique-text" name="colors-text" maxlength="500" placeholder="Please comment on the colors of this image."></textarea><br>
+                    <input type="hidden" name="colorsslider" id="colorsslider" value="1">
+                    <textarea class="critique-text" name="colors-text" maxlength="500" 
+                    <?php if (!empty($post["colors-text"])):?>
+                        value='<?=htmlspecialchars($post["colors-text"])?>'
+                    <?php endif ?>
+                    placeholder="Please rate and comment on the colors of this image. (Required)"></textarea><br>
                     <hr size=".1px" align="center">
                     <h1> Editing </h1>
                     <div class="sliderholder">
@@ -185,11 +217,19 @@
                             </div>
                         </div>
                     </div>
-                    <textarea class="critique-text" name="editing-text" maxlength="500" placeholder="Please comment on the editing of this image."></textarea><br>
-
+                    <input type="hidden" name="editingslider" id="editingslider" value="1">
+                    <textarea class="critique-text" name="editing-text" maxlength="500" 
+                    <?php if (!empty($post["editing-text"])):?>
+                        value='<?=htmlspecialchars($post["editing-text"])?>'
+                    <?php endif ?>
+                    placeholder="Please rate and comment on the editing of this image. (Required)"></textarea><br>
                     <hr size=".1px" align="center">
                     <h1> Additional Comments </h1>
-                    <textarea class="critique-text" name="critique-text" maxlength="500" placeholder="Please comment on the editing of this image."></textarea><br>
+                    <textarea class="critique-text" name="critique-text" maxlength="500" 
+                    <?php if (!empty($post["critique-text"])):?>
+                        value='<?=htmlspecialchars($post["critique-text"])?>'
+                    <?php endif ?>
+                    placeholder="Please comment on the editing of this image."></textarea><br>
                     <input type="hidden" name="image_id" value= <?=htmlspecialchars($image_data["id"])?> >
                     <input type="hidden" name="quality" value= <?=htmlspecialchars($quality)?> >
                     <input type="submit" name="critique" value="Submit Critique" class="gray-trans critique-text-button">
@@ -204,16 +244,19 @@
             new Dragdealer('just-a-slider', {
                 animationCallback: function(x, y) {
                     $('#just-a-slider .value').text(Math.ceil((x * 9.8)+.1)+"/10");
+                    document.getElementById("compositionslider").setAttribute("value",Math.ceil((x * 9.8)+.1));
                 }
             })
             new Dragdealer('just-a-slider2', {
                 animationCallback: function(x, y) {
                     $('#just-a-slider2 .value').text(Math.ceil((x * 9.8)+.1)+"/10");
+                    document.getElementById("colorsslider").setAttribute("value",Math.ceil((x * 9.8)+.1));
                 }
             })
             new Dragdealer('just-a-slider3', {
                 animationCallback: function(x, y) {
                     $('#just-a-slider3 .value').text(Math.ceil((x * 9.8)+.1)+"/10");
+                    document.getElementById("editingslider").setAttribute("value",Math.ceil((x * 9.8)+.1));
                 }
             })
         });

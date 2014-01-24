@@ -19,8 +19,15 @@
             exit;
         }
 
+        $link = mysqli_connect("localhost", "root", "root", "crtiq");
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        $username = mysqli_real_escape_string($link, $_POST["username"]);
         // query database for user
-        $rows = query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
+        $rows = query("SELECT * FROM users WHERE username = ?", $username);
 
         // if we found user, check password
         if (count($rows) == 1)

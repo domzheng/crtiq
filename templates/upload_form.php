@@ -12,8 +12,8 @@
         "img/background/DSC_0091_cropped.jpg"
             //NOTE: The last element has NO comma
         ], {
-          fade: 2500,      //Speed of Fade
-          duration: 5000  //Time of image display
+          fade: 4000,      //Speed of Fade
+          duration: 10000  //Time of image display
       });
    </script>
 

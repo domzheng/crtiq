@@ -31,31 +31,15 @@
     // if critique was posted, make it
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        if (!empty($_POST["critique-text"]))
+        date_default_timezone_set('America/New_York');
+        $date = date('F j, Y, g:i a', time());
+
+        // validate everything has been submitted.
+        if(empty($_POST["composition-text"]) || !isset($_POST["compositionslider"]) || empty($_POST["colors-text"]) ||
+           !isset($_POST["colorsslider"]) || empty($_POST["editing-text"]) || empty($_POST["critique-text"]) ||
+           !isset($_POST["quality"]) || !isset($_POST["image_id"]))
         {
-            date_default_timezone_set('America/New_York');
-            $date = date('F j, Y, g:i a', time());
-            $insert = query("INSERT INTO critiques (text, quality, image_id, writer_id, date) VALUES(?, ?, ?, ?, ?)", 
-                    $_POST["critique-text"], $_POST["quality"], $_POST["image_id"], $_SESSION["id"], $date);
-            $user_id = query("SELECT user_id FROM images WHERE id = ?", $_POST["image_id"])[0]["user_id"];
-            // increment like numbers if liked
-            if ($_POST["quality"]==1)
-            {
-                $check1 = query("UPDATE images set likes = likes + 1 WHERE id = ?", $_POST["image_id"]);
-                $check2 = query("UPDATE users set likes = likes + 1 WHERE id = ?", $user_id);
-            }
-            // increase dislike numbers if disliked
-            else
-            {
-                $check1 = query("UPDATE images set dislikes = dislikes + 1 WHERE id = ?", $_POST["image_id"]);
-                $check2 = query("UPDATE users set dislikes = dislikes + 1 WHERE id = ?", $user_id);
-            }
-            $_SESSION["critiqued"] = 1;
-            redirect("/home.php");
-        }
-        else
-        {
-            // else the form is empty, pass back error
+            // the form is empty, pass back error
             // get data related to the image, copied from below with modifications
             $image_data_array = query("SELECT * FROM images WHERE id = ?", $_POST["image_id"]);
             if ($image_data_array == false)
@@ -75,9 +59,49 @@
             $critiques = query("SELECT * FROM critiques WHERE image_id = ?", $image_data["id"]);
 
             render("critique_screen.php", ["title" => "Submit a Critique!", "image_data" => $image_data, "artist_data" => $artist_data, 
-                    "quality" => $_POST["quality"], "message" => "You must write you comments to finish submitting!", "critiques" => $critiques]);
+                    "quality" => $_POST["quality"], "message" => "Please fill all required fields.", "critiques" => $critiques, "post" => $_POST]);
             exit;
         }
+
+        // otherwise input the comment into sql
+        $link = mysqli_connect("localhost", "root", "root", "crtiq");
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+        $composition_text = $_POST["composition-text"];
+        $compositionslider = mysqli_real_escape_string($link, $_POST["compositionslider"]);
+        $colors_text = $_POST["colors-text"];
+        $colorsslider = mysqli_real_escape_string($link, $_POST["colorsslider"]);
+        $editing_text = $_POST["editing-text"];
+        $editingslider = mysqli_real_escape_string($link, $_POST["editingslider"]);
+        $critique_text = $_POST["critique-text"];
+        $quality = mysqli_real_escape_string($link, $_POST["quality"]);
+        $image_id = mysqli_real_escape_string($link, $_POST["image_id"]);     
+        $insert = query("INSERT INTO critiques (compositionrating, compositioncomment, colorsrating, 
+                                                colorscomment, editingrating, editingcomment, 
+                                                text, quality, image_id, 
+                                                writer_id, date) 
+                        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+                                $compositionslider, $composition_text, $colorsslider, 
+                                $colors_text, $editingslider, $editing_text, 
+                                $critique_text, $quality, $image_id, 
+                                $_SESSION["id"], $date);
+        $user_id = query("SELECT user_id FROM images WHERE id = ?", $image_id)[0]["user_id"];
+        // increment like numbers if liked
+        if ($_POST["quality"]==1)
+        {
+            $check1 = query("UPDATE images set likes = likes + 1 WHERE id = ?", $image_id);
+            $check2 = query("UPDATE users set likes = likes + 1 WHERE id = ?", $user_id);
+        }
+        // increase dislike numbers if disliked
+        else
+        {
+            $check1 = query("UPDATE images set dislikes = dislikes + 1 WHERE id = ?", $image_id);
+            $check2 = query("UPDATE users set dislikes = dislikes + 1 WHERE id = ?", $user_id);
+        }
+        $_SESSION["critiqued"] = 1;
+        redirect("/home.php");
     }
 
     // if image_id is set, which it should be, load form
@@ -98,7 +122,7 @@
         $artist_data = query("SELECT * FROM users WHERE id = ?", $image_data["user_id"])[0];
 
         // get critiques
-        $critiques = query("SELECT * FROM critiques WHERE image_id = ? ORDER BY RAND() LIMIT 10", $image_data["id"]);
+        $critiques = query("SELECT * FROM critiques WHERE image_id = ?", $image_data["id"]);
         $counter = 0;
         foreach ($critiques as $critique)
         {

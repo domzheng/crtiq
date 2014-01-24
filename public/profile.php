@@ -81,6 +81,17 @@
             	exit;
 	        }
 	    }
+        // establish mysql connection
+        $link = mysqli_connect("localhost", "root", "root", "crtiq");
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        $fullname = mysqli_real_escape_string($link, $_POST["fullname"]);
+        $hometown = mysqli_real_escape_string($link, $_POST["hometown"]);
+        $email = mysqli_real_escape_string($link, $_POST["email"]);
+        $aboutme = mysqli_real_escape_string($link, $_POST["aboutme"]);
 
         // upload the rest of the information
         $check2 = query("UPDATE users 

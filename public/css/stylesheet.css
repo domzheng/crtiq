@@ -938,8 +938,10 @@ p.userchecks{
 .image_box{
 	height: 80%;
 	width: 940px;
-	background-size: cover;
+	background-size: contain;
 	background-position: center center;
+	background-color: rgba(0,0,0,.7);
+	background-repeat: no-repeat;
 }
 
 .fixed_label{
@@ -961,6 +963,7 @@ p.userchecks{
 	height: 20%;
 	text-align: left;
 	padding-left: 2.5%;
+	background-color: rgba(0,0,0,.2);
 }
 
 .image_label h1{
@@ -1380,6 +1383,7 @@ td.data-title{
 	width: 200px;
 	height: 200px;
 	background-size: cover;
+	background-position: center center;
 	float: left;
 	margin: 0 0 3.2% 3.2%;
 	overflow: visible;

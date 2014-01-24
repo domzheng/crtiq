@@ -31,38 +31,44 @@
             exit;
         }
 
-        if (($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/jpg") 
-            || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/x-png") 
-            || ($_FILES["file"]["type"] == "image/png"))
+        // if user has no folder, make a folder
+        if (!file_exists('upload/' . strval($_SESSION["id"]))) {
+            mkdir('upload/' . strval($_SESSION["id"]), 0777, true);
+        }
+        $uploaddir = '/upload/' . strval($_SESSION["id"] . "/");
+        $uploadfile = $uploaddir . basename($_FILES['file']['name']);
+        $uploadurl = "http://www.crtiq.com" . $uploadfile;
+        //dump(dirname(__FILE__).$uploadfile);
+        if (file_exists(dirname(__FILE__).$uploadfile))
         {
-            // if user has no folder, make a folder
-            if (!file_exists('upload/' . strval($_SESSION["id"]))) {
-                mkdir('upload/' . strval($_SESSION["id"]), 0777, true);
+            render("upload_form.php", ["title" => "Upload", "message" => "An file of that name already exists in your photos."]);
+            exit;
+        }
+        if (move_uploaded_file($_FILES['file']['tmp_name'], dirname(__FILE__).$uploadfile)) 
+        {
+            $link = mysqli_connect("localhost", "root", "root", "crtiq");
+            if (mysqli_connect_errno()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
             }
+            $title = mysqli_real_escape_string($link, $_POST["title"]);
+            $camera = mysqli_real_escape_string($link, $_POST["camera"]);
+            $lens = $_POST["lens"];
+            $date = mysqli_real_escape_string($link, $_POST["date"]);
+            $location = mysqli_real_escape_string($link, $_POST["location"]);
+            $shutter = mysqli_real_escape_string($link, $_POST["shutter"]);
+            $aperture = mysqli_real_escape_string($link, $_POST["aperture"]);
+            $iso = mysqli_real_escape_string($link, $_POST["iso"]);
+            $description = mysqli_real_escape_string($link, $_POST["description"]);
 
-            $uploaddir = '/upload/' . strval($_SESSION["id"] . "/");
-            $uploadfile = $uploaddir . basename($_FILES['file']['name']);
-            $uploadurl = "http://www.crtiq.com" . $uploadfile;
-            //dump(dirname(__FILE__).$uploadfile);
-            if (file_exists(dirname(__FILE__).$uploadfile))
-            {
-                render("upload_form.php", ["title" => "Upload", "message" => "An image of that name already exists."]);
-                exit;
-            }
-            if (move_uploaded_file($_FILES['file']['tmp_name'], dirname(__FILE__).$uploadfile)) 
-            {
-                $insert = query("INSERT INTO images (title, camera, lens, date, location, shutter, aperture, iso, 
-                    description, user_id, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", $_POST["title"], 
-                    $_POST["camera"], $_POST["lens"], $_POST["date"], $_POST["location"], $_POST["shutter"],
-                    $_POST["aperture"], $_POST["iso"], $_POST["description"], $_SESSION["id"], $uploadurl); 
-                // redirect to gallery
-                redirect("/home.php");
-            }
-            else
-            {
-                render("upload_form.php", ["title" => "Upload", "message" => "Bug detected. Please notify crtIQ developers."]);
-                exit;
-            }
+            $insert = query("INSERT INTO images (title, camera, lens, date, location, shutter, aperture, iso, 
+                description, user_id, url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+                $title, $camera, $lens, 
+                $date, $location, $shutter, 
+                $aperture, $iso, $description, 
+                $_SESSION["id"], $uploadurl); 
+            // redirect to gallery
+            redirect("/home.php");
         }
         else
         {
