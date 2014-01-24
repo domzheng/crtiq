@@ -4,20 +4,29 @@
     require("../includes/config.php");
 
     if (empty($_SESSION["id"]))
+    {
+        if (isset($_GET["image_id"]))
         {
-            if (isset($_GET["image_id"]))
+            $image_data_array = query("SELECT * FROM images WHERE id = ?", $_GET["image_id"]);
+            if ($image_data_array == false)
             {
-                $image_data_array = query("SELECT * FROM images WHERE id = ?", $_GET["image_id"]);
-                if ($image_data_array == false){
-                    redirect("/index.php");   
-                }
-                else{
-                    render("critique_preview.php", ["title" => "Submit a Critique!", "image_data" => $image_data, 
-                    "artist_data" => $artist_data, "critiques" => $critiques]);
-                    exit;
-                }
+                redirect("/index.php");   
             }
+            else
+            {
+                $image_data = $image_data_array[0];
+            }
+
+            // get artist's data
+            $artist_data = query("SELECT * FROM users WHERE id = ?", $image_data["user_id"])[0];
+
+            render("critique_preview.php", ["title" => "Preview", "image_data" => $image_data, 
+            "artist_data" => $artist_data]);
+            exit;
         }
+    }
+            
+        
 
     // if critique was posted, make it
     if ($_SERVER["REQUEST_METHOD"] == "POST")
