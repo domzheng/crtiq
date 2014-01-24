@@ -21,11 +21,11 @@
     session_start();
 
     // require authentication for most pages
-    if (!preg_match("{(?:login|index|signup)\.php$}", $_SERVER["PHP_SELF"]))
+    if (!preg_match("{(?:login|index|signup|critique)\.php$}", $_SERVER["PHP_SELF"]))
     {
         if (empty($_SESSION["id"]))
         {
-            redirect("/login.php");
+            redirect("/index.php");
         }
     }
 

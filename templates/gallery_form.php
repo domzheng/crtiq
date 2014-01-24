@@ -87,7 +87,12 @@
                 print("<span class='message'>{$image["title"]}</span></a>");
             }
         ?>
-        <a href="upload.php" class="gallery-img" style="background-image: url('img/upload_gallery_plus.png');" title="Upload a new photograph."></a>
+        <?php
+            if ($user_id == $session_id)
+            {
+                print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
+            }
+        ?>  
     </div>
   <?php else: ?>
     <div class="gallery_container">

@@ -42,7 +42,12 @@
     <div id="container">
    <!-- === === === === === HEADER === === === === === -->
     <div id="header">
+<<<<<<< HEAD
         <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a> 
+=======
+        <a href="home.php" title="Back to Home"><div class="logo-nav"></div></a>
+        
+>>>>>>> 3e553091c0c6b7847b25f0620725720090aa2c4e
         <div id="nav">
             <ul>
                 <li><a href="home.php" title="Back to your profile">YOU</a></li>
