@@ -782,6 +782,7 @@ textarea.descriptionfield::-webkit-input-placeholder {
 	width: 125px;
 	height: 125px;
 	background-size: cover;
+	background-position: center center;
 	border-top-left-radius: 50% 50%;
 	border-bottom-left-radius: 50% 50%;
 	border-top-right-radius: 50% 50%;
@@ -852,6 +853,7 @@ p.userchecks{
 	width: 300px;
 	height: 300px;
 	background-size: cover;
+	background-position: center center;
 	float: left;
 	margin: 0 0 3.2% 3.2%;
 	overflow: visible;
@@ -937,6 +939,7 @@ p.userchecks{
 	height: 80%;
 	width: 940px;
 	background-size: cover;
+	background-position: center center;
 }
 
 .fixed_label{
@@ -1398,6 +1401,7 @@ td.data-title{
 	width: 100px;
 	height: 100px;
 	background-size: cover;
+	background-position-x: center;
 	border-top-left-radius: 50% 50%;
 	border-bottom-left-radius: 50% 50%;
 	border-top-right-radius: 50% 50%;
