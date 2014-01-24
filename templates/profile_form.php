@@ -122,7 +122,7 @@
 
               <div id="profileupdate2">
                 
-                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less" cols="25" rows="5" maxlength="140"><?php
+                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less." cols="25" rows="5" maxlength="140"><?php
                     if(!empty($user_info["description"])){
                       print("{$user_info["description"]}");}?></textarea>  
 

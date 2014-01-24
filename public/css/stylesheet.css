@@ -68,7 +68,7 @@ img.background{
 	text-align: left;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	color: white;
+	color: white !important;
 	position: absolute;
 	bottom: 0;
 	top: 0;

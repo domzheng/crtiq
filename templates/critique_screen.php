@@ -36,27 +36,6 @@
     </div>
 
     <!-- === === === === === WELCOME === === === === === -->
-    <link href="dragdealer-master/lib/jasmine.css" type="text/css" rel="stylesheet">
-    <link href="dragdealer-master/lib/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
-    <script src="dragdealer-master/lib/jquery-1.10.2.js"></script>
-    <script src="dragdealer-master/lib/jquery.simulate.js"></script>
-    <script src="dragdealer-master/lib/jasmine.js"></script>
-    <script src="dragdealer-master/lib/jasmine-html.js"></script>
-    <script src="dragdealer-master/lib/jasmine-jquery.js"></script>
-    <link href="dragdealer-master/src/dragdealer.css" type="text/css" rel="stylesheet">
-    <script src="dragdealer-master/src/dragdealer.js"></script>
-    <script src="dragdealer-master/spec/helpers.js"></script>
-    <script src="dragdealer-master/spec/matchers.js"></script>
-    <script src="dragdealer-master/spec/optionsSpec.js"></script>
-    <script src="dragdealer-master/spec/draggingSpec.js"></script>
-    <script src="dragdealer-master/spec/callbacksSpec.js"></script>
-    <script src="dragdealer-master/spec/apiSpec.js"></script>
-    <script src="dragdealer-master/spec/resizingSpec.js"></script>
-    <script src="dragdealer-master/spec/eventsSpec.js"></script>
-    <script src="dragdealer-master/spec/browser-runner.js"></script>
-    <link href="dragdealer-master/demo/style/index.css" type="text/css" rel="stylesheet">
-    <link href="dragdealer-master/demo/style/jasmine-reporter.css" type="text/css" rel="stylesheet">
-    <script src="dragdealer-master/demo/script/index.js"></script>
     <div class="cover">
         <div class="display">
             <div class="image_container">
@@ -147,6 +126,27 @@
                         </div>
                     <?php endif ?>
                 <?php else: ?>
+                <link href="dragdealer-master/lib/jasmine.css" type="text/css" rel="stylesheet">
+                <link href="dragdealer-master/lib/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+                <script src="dragdealer-master/lib/jquery-1.10.2.js"></script>
+                <script src="dragdealer-master/lib/jquery.simulate.js"></script>
+                <script src="dragdealer-master/lib/jasmine.js"></script>
+                <script src="dragdealer-master/lib/jasmine-html.js"></script>
+                <script src="dragdealer-master/lib/jasmine-jquery.js"></script>
+                <link href="dragdealer-master/src/dragdealer.css" type="text/css" rel="stylesheet">
+                <script src="dragdealer-master/src/dragdealer.js"></script>
+                <script src="dragdealer-master/spec/helpers.js"></script>
+                <script src="dragdealer-master/spec/matchers.js"></script>
+                <script src="dragdealer-master/spec/optionsSpec.js"></script>
+                <script src="dragdealer-master/spec/draggingSpec.js"></script>
+                <script src="dragdealer-master/spec/callbacksSpec.js"></script>
+                <script src="dragdealer-master/spec/apiSpec.js"></script>
+                <script src="dragdealer-master/spec/resizingSpec.js"></script>
+                <script src="dragdealer-master/spec/eventsSpec.js"></script>
+                <script src="dragdealer-master/spec/browser-runner.js"></script>
+                <link href="dragdealer-master/demo/style/index.css" type="text/css" rel="stylesheet">
+                <link href="dragdealer-master/demo/style/jasmine-reporter.css" type="text/css" rel="stylesheet">
+                <script src="dragdealer-master/demo/script/index.js"></script>
                 <form class="critique-submission" method="POST" action="critique.php">
                     <h1 class="critique-text-1">You gave this photograph a</h1>
                     <?php if ($quality == 1):?>
