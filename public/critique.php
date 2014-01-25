@@ -36,7 +36,7 @@
 
         // validate everything has been submitted.
         if(empty($_POST["composition-text"]) || !isset($_POST["compositionslider"]) || empty($_POST["colors-text"]) ||
-           !isset($_POST["colorsslider"]) || empty($_POST["editing-text"]) || empty($_POST["critique-text"]) ||
+           !isset($_POST["colorsslider"]) || empty($_POST["editing-text"]) ||
            !isset($_POST["quality"]) || !isset($_POST["image_id"]))
         {
             // the form is empty, pass back error

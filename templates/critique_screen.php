@@ -134,8 +134,10 @@
                                     print(htmlspecialchars($critiques[$counter]["editingrating"]));
                                     print("</p><p>");
                                     print(htmlspecialchars($critiques[$counter]["editingcomment"]));
-                                    print("</p></div><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>General Observations:</p><p>");
-                                    print(htmlspecialchars($critiques[$counter]["text"]));
+                                    if (!empty($critiques[$counter]["text"])){
+                                        print("</p></div><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>General Observations:</p><p>");
+                                        print(htmlspecialchars($critiques[$counter]["text"]));
+                                    } 
                                     print("</p></div><br>");
                                     $counter--;   
                                     $counter2++;
