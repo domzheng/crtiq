@@ -26,16 +26,18 @@
     <!-- === === === === === WELCOME === === === === === -->
     <div class="previewdisplay">
         <div class="preview_image_container">
-            <img src="http://crtiq.com/img/background/bird.jpg">
+            <?php
+            print("<img src=\"{$image_data["url"]}\">");
+            ?>
         </div>
         
         <div class="fixed_label">
 
-            <h1> Lumos </h1><h2> by Harry Potter </h2><br>
-            <h3> March 10 2013 </h3>
+            <h1><?=htmlspecialchars($image_data["title"])?></h1><h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2><br>
+            <h3><?=htmlspecialchars($image_data["date"])?></h3>
 
             <div class="detailsicon">
-                <span class="hint--top" data-hint="CAMERA&#10;<?php print("");?>&#10;&#10;LENS&#10;40mm&#10;&#10;APERTURE&#10;f/2.4&#10;&#10;SHUTTER&#10;1/250&#10;&#10;ISO&#10;200"><img src= "img/hovercamera.png" title=""></a></span>
+                <span class="hint--top" <?php print("data-hint=\"CAMERA&#10;{$image_data["camera"]}&#10;&#10;LENS&#10;{$image_data["lens"]}&#10;&#10;APERTURE&#10;{$image_data["aperture"]}&#10;&#10;SHUTTER&#10;{$image_data["shutter"]}&#10;&#10;ISO&#10;{$image_data["iso"]}\">")?><img src= "img/hovercamera.png" title=""></a></span>
             </div>
 
         </div>

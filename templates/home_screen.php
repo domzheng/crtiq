@@ -44,7 +44,7 @@
 
     <div id="fpcredits">
         <?php
-            print("<img src=\"{$backgroundimage[3]}\" alt=\"\">");
+            print("<a href=\"others.php?user_id={?backgroundimage[5]}\"><img src=\"{$backgroundimage[3]}\" alt=\"\"></a>");
         ?>
         <div class="fptitle">
           <?php

@@ -191,7 +191,7 @@ img.aboutthumb{
 	margin-top: 0px;
 	text-align: left;
 	width: 100%;
-	min-width: 1300px;
+	min-width: 1000px;
 	background-color: black;
 	height: 54px;
 	z-index: 9000;
@@ -620,6 +620,15 @@ textarea.descriptionfield::-webkit-input-placeholder {
     letter-spacing: 4px;
     font-size: 17px;
     text-shadow: 2px 2px #000000;	
+    -webkit-transition:background-color 0.5s linear;
+   -moz-transition: background-color 0.5s linear;
+   -o-transition: background-color 0.5s linear;
+
+   background:#000;
+}
+
+.fptitle h1:hover{
+	background: #ff0;
 }
 
 .fptitle h2{
