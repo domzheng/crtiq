@@ -41,92 +41,93 @@
     </div>
 
     <!-- === === === === === USER SIDE BAR === === === === === -->
-    <div class="usersidebar">
-          <div class="username">
-          <?php
-              $counter = 0;
-              foreach($user_info["splitname"] as $name)
-              {
-                  if ($counter > 0)
-                  {
-                      print("<br>");
-                  }
-                  print($name);
-                  $counter++;
-              }
-          ?>
-          </div>
+    <div class="profile-box">
+      <div class="usersidebar">
+            <div class="username">
+            <?php
+                $counter = 0;
+                foreach($user_info["splitname"] as $name)
+                {
+                    if ($counter > 0)
+                    {
+                        print("<br>");
+                    }
+                    print($name);
+                    $counter++;
+                }
+            ?>
+            </div>
+            <?php if (!empty($user_info["profile_url"])):?>
+                <div class="usericon" style="background-image: url('<?=$user_info["profile_url"]?>');"></div>
+            <?php else: ?>
+                <div class="usericon" style="background-image: url('img/man-silhouette-svg-med-copy.png');"></div>
+            <?php endif ?>
+            <div class="userbasicinfo">
+                <p><?= htmlspecialchars($user_info["hometown"])?> &nbsp&nbsp&nbsp&nbsp&nbsp|
+                      &nbsp&nbsp&nbsp&nbsp&nbsp <?= htmlspecialchars(sizeof($user_images))?> &nbsp images</p>
+                <p class="userlikes"><?= htmlspecialchars($user_info["likes"])?> likes</p>
+                <p class="userchecks"></p>
+            </div>
           <?php if (!empty($user_info["profile_url"])):?>
-              <div class="usericon" style="background-image: url('<?=$user_info["profile_url"]?>');"></div>
-          <?php else: ?>
-              <div class="usericon" style="background-image: url('img/man-silhouette-svg-med-copy.png');"></div>
+              <h1 class="about-me title">ABOUT ME</h1>
+              <p class="about-me"><?=$user_info["description"]?></p>
           <?php endif ?>
-          <div class="userbasicinfo">
-              <p><?= htmlspecialchars($user_info["hometown"])?> &nbsp&nbsp&nbsp&nbsp&nbsp|
-                    &nbsp&nbsp&nbsp&nbsp&nbsp <?= htmlspecialchars(sizeof($user_images))?> &nbsp images</p>
-              <p class="userlikes"><?= htmlspecialchars($user_info["likes"])?> likes</p>
-              <p class="userchecks"></p>
-          </div>
-        <?php if (!empty($user_info["profile_url"])):?>
-            <h1 class="about-me title">ABOUT ME</h1>
-            <p class="about-me"><?=$user_info["description"]?></p>
-        <?php endif ?>
-    </div>
-    <!-- === === === === === PROFILE FORM === === === === === -->
-    <div class="profile_container">
-      <div id="profileform">
-          <form class="profile-input" method="post" enctype="multipart/form-data" action="profile.php">
-              <div id="profileupdate">
-                  <?php if (isset($message)):?>
-                      <p class='apologyupload'><?= htmlspecialchars($message)?></p>
-                  <?php endif ?>
-                  <div class="upload-title-container">
-                      <input type="text" id="imagelabelreadonly" name="uploadreadonly" value="" placeholder="Upload a new profile picture" class="white-trans"></input>
-                  </div>
-                  <label class="filebutton">
-                    +
-                    <span><input type="file" id="file" name="profilepic"></input></span>
-                  </label>
+      </div>
+      <!-- === === === === === PROFILE FORM === === === === === -->
+      <div class="profile_container">
+        <div id="profileform">
+            <form class="profile-input" method="post" enctype="multipart/form-data" action="profile.php">
+                <div id="profileupdate">
+                    <?php if (isset($message)):?>
+                        <p class='apologyupload'><?= htmlspecialchars($message)?></p>
+                    <?php endif ?>
+                    <div class="upload-title-container">
+                        <input type="text" id="imagelabelreadonly" name="uploadreadonly" value="" placeholder="Upload a new profile picture" class="white-trans"></input>
+                    </div>
+                    <label class="filebutton">
+                      +
+                      <span><input type="file" id="file" name="profilepic"></input></span>
+                    </label>
 
-                  <div class="upload-input-container">
-                    <input type="text" name="fullname" placeholder="Full Name" 
-                      <?php if (!empty($user_info["fullname"])):?>
-                        value='<?=htmlspecialchars($user_info["fullname"])?>'
+                    <div class="upload-input-container">
+                      <input type="text" name="fullname" placeholder="Full Name" 
+                        <?php if (!empty($user_info["fullname"])):?>
+                          value='<?=htmlspecialchars($user_info["fullname"])?>'
+                        <?php endif ?>
+                        class="white-trans"></input>
+                    </div>
+
+                    <div class="upload-input-container">
+                      <input type="text" name="hometown" placeholder="Hometown eg. Baltimore, MD" 
+                      <?php if (!empty($user_info["hometown"])):?>
+                        value='<?=htmlspecialchars($user_info["hometown"])?>'
+                      <?php endif ?>
+                      class ="white-trans"></input>
+                    </div>
+
+                    <div class="upload-input-container">
+                      <input type="text" name="email" placeholder="Email" 
+                      <?php if (!empty($user_info["email"])):?>
+                        value='<?=htmlspecialchars($user_info["email"])?>'
                       <?php endif ?>
                       class="white-trans"></input>
-                  </div>
+                    </div>
 
-                  <div class="upload-input-container">
-                    <input type="text" name="hometown" placeholder="Hometown eg. Baltimore, MD" 
-                    <?php if (!empty($user_info["hometown"])):?>
-                      value='<?=htmlspecialchars($user_info["hometown"])?>'
-                    <?php endif ?>
-                    class ="white-trans"></input>
-                  </div>
+                </div>
 
-                  <div class="upload-input-container">
-                    <input type="text" name="email" placeholder="Email" 
-                    <?php if (!empty($user_info["email"])):?>
-                      value='<?=htmlspecialchars($user_info["email"])?>'
-                    <?php endif ?>
-                    class="white-trans"></input>
-                  </div>
+                <div id="profileupdate2">
+                  
+                   <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less." cols="25" rows="5" maxlength="140"><?php
+                      if(!empty($user_info["description"])){
+                        print("{$user_info["description"]}");}?></textarea>  
 
-              </div>
+                    <div class="upload-submit-container submit-button">
+                      <input type="submit" name="submit_upload" value="Submit" class="gray-trans"></submit>
+                    </div>
 
-              <div id="profileupdate2">
-                
-                 <textarea class="aboutmefield" name="aboutme" placeholder="Tell us about yourself in 140 characters or less." cols="25" rows="5" maxlength="140"><?php
-                    if(!empty($user_info["description"])){
-                      print("{$user_info["description"]}");}?></textarea>  
-
-                  <div class="upload-submit-container submit-button">
-                    <input type="submit" name="submit_upload" value="Submit" class="gray-trans"></submit>
-                  </div>
-
-              </div>
-          </form>
-        </div>
+                </div>
+            </form>
+          </div>
+    </div>
   </div>
-
 </div>
