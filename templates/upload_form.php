@@ -53,7 +53,7 @@
             </div>
             <label class="filebutton">
               +
-              <span><input type="file" name="file" id="file"></input></span>
+              <span><input type="file" name="file" id="file" style="opacity: 0;"></input></span>
             </label>
 
             <div class="upload-input-container">

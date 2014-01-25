@@ -44,7 +44,8 @@
                 <div class="image_box" style="background-image:url('<?=htmlspecialchars($image_data["url"])?>');"></div>
                 <div class="image_label">
                     <h1><?=htmlspecialchars($image_data["title"])?></h1>
-                    <h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2>
+                    <?php print("<a href=\"others.php?user_id={$image_data["user_id"]}\">");?> 
+                    <h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2></a>
                     <h3><?=htmlspecialchars($image_data["date"])?></h3>
 
                         <div class="detailsicon">
@@ -152,9 +153,9 @@
                                 $counter2 = 1;
                                 foreach ($critiques as $critique)
                                 {
-                                    print("<div align='center'><div class='critiquenumber'>{$counter2}</div></div><h2><strong>");
+                                    print("<div align='center'><div class='critiquenumber'>{$counter2}</div></div><a href='others.php?user_id={$critiques[$counter]['writer_id']}'><h2><strong>");
                                     print(htmlspecialchars($critiques[$counter]["writer"]));
-                                    print("</strong></h2><br><h3>&nbsp written on &nbsp");
+                                    print("</strong></h2></a><br><h3>&nbsp written on &nbsp");
                                     print(htmlspecialchars($critiques[$counter]["date"]));
                                     print("</h3><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>Composition: &nbsp");
                                     print(htmlspecialchars($critiques[$counter]["compositionrating"]));

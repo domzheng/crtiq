@@ -1311,6 +1311,7 @@ p.userchecks{
 	font-size: 10pt;
 	font-weight: 400;
 	display: inline-block;
+	color: white !important;
 }
 
 .critique_display h3{

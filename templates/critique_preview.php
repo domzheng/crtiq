@@ -33,7 +33,10 @@
         
         <div class="fixed_label">
 
-            <h1><?=htmlspecialchars($image_data["title"])?></h1><h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2><br>
+            <h1><?=htmlspecialchars($image_data["title"])?></h1>
+            <?php print("<a href=\"others.php?user_id={$image_data["user_id"]}\">");?> 
+            
+            <h2>by <?=htmlspecialchars($artist_data["fullname"])?></h2></a><br>
             <h3><?=htmlspecialchars($image_data["date"])?></h3>
 
             <div class="predetailsicon">

@@ -19,9 +19,9 @@
 
             // get artist's data
             $artist_data = query("SELECT * FROM users WHERE id = ?", $image_data["user_id"])[0];
-
+            $a = htmlspecialchars($image_data["user_id"]);
             render("critique_preview.php", ["title" => "Preview", "image_data" => $image_data, 
-            "artist_data" => $artist_data]);
+            "artist_data" => $artist_data, "a" => $a]);
             exit;
         }
     }

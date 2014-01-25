@@ -105,7 +105,7 @@
                 <p class="userlikes"><?= htmlspecialchars($user_info["likes"])?> likes</p>
                 <p class="userchecks"></p>
             </div>
-          <?php if (!empty($user_info["profile_url"])):?>
+          <?php if (!empty($user_info["description"])):?>
               <h1 class="about-me title">ABOUT ME</h1>
               <p class="about-me"><?=$user_info["description"]?></p>
           <?php endif ?>
@@ -126,11 +126,13 @@
                   print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
               }
             }
-            elseif ($athome == 1)
+            elseif(isset($athome))
             {
-                print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
+              if ($athome == 1)
+              {
+                  print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
+              }
             }
-
           ?>  
       </div>
     </div>
