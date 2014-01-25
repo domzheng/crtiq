@@ -1128,6 +1128,14 @@ p.userchecks{
 	float: right;	
 	z-index: 999;
 	display: block;
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	opacity: 0.2;
+}
+
+.predetailsicon:hover{
+	opacity: 1;
 }
 
 .detailsicon{
@@ -1140,6 +1148,16 @@ p.userchecks{
 .detailsicon img{
 	width: 80%;
 	height: auto;
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	opacity: 0.2;
+}
+
+.detailsicon img:hover{
+	width: 80%;
+	height: auto;
+	opacity: 1;
 }
 
 /*.detailsicon a:hover:after{
@@ -1220,6 +1238,19 @@ p.userchecks{
 .description{
 	min-height: 100px;
 }
+
+.critiquenumber{
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: rgba(255,255,255,.15);
+	border: 5px solid rgba(255,255,255,0);
+	color: white;
+	text-align: center;
+	font: 12px Helvetica, sans-serif;
+	font-weight: normal;
+}
+
 .critique-submission{
 	min-height: 25%;
 }
@@ -1416,10 +1447,103 @@ td.data-title{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: -12px;
-	font-size: 45px;
+	margin-bottom: 14px;
+	font-size: 40px;
 	font-family: helvetica neue;
 	font-weight: 500;
+	line-height: 55px;
 	color: rgba(255,255,255,0.5);
+	padding-left: 4%;
+}
+
+.scorecomposition{
+	width: 80%;
+	height: 40px;
+	background-color: rgba(255,255,255,.2);
+	line-height: 40px;
+	font-family: Helvetica;
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+
+.scorecompositiontitle{
+	display: inline-block;
+	float: left;
+	padding-left: 5%;
+}
+
+.scorecompositionscore{
+	display: inline-block;
+	float: right;
+	background-color: rgba(146,95,95,1);
+	width: 48px;
+	height: 100%;
+	text-align: center;
+	font-style: normal;
+}
+
+.scorecolor{
+	width: 80%;
+	height: 40px;
+	background-color: rgba(255,255,255,.2);
+	line-height: 40px;
+	font-family: Helvetica;
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 5px;
+}
+
+.scorecolortitle{
+	display: inline-block;
+	float: left;
+	padding-left: 5%;
+}
+
+.scorecolorscore{
+	display: inline-block;
+	float: right;
+	background-color: rgba(146,95,95,1);
+	width: 48px;
+	height: 100%;
+	text-align: center;
+	font-style: normal;
+}
+
+.scoreediting{
+	width: 80%;
+	height: 40px;
+	background-color: rgba(255,255,255,.2);
+	line-height: 40px;
+	font-family: Helvetica;
+	font-weight: lighter;
+	font-style: italic;
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+.scoreeditingtitle{
+	display: inline-block;
+	float: left;
+	padding-left: 5%;
+}
+
+.scoreeditingscore{
+	display: inline-block;
+	float: right;
+	background-color: rgba(146,95,95,1);
+	width: 48px;
+	height: 100%;
+	text-align: center;
+	font-style: normal;
 }
 
 .browsemessage{

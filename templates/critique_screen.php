@@ -73,7 +73,22 @@
                     <h1>RATINGS</h1>
                     
                     <div class="scoreoverall">
-                        overall &nbsp <font style="color:white">8.5</font>
+                        overall &nbsp&nbsp&nbsp<font style="color:white">8.5</font>
+                    </div>
+
+                    <div class="scorecomposition">
+                        <div class="scorecompositiontitle">composition</div>
+                        <div class="scorecompositionscore">9.2</div>
+                    </div>
+
+                    <div class="scorecolor">
+                        <div class="scorecolortitle">color</div>
+                        <div class="scorecolorscore">4.5</div>
+                    </div>
+
+                    <div class="scoreediting">
+                        <div class="scoreeditingtitle">editing</div>
+                        <div class="scoreeditingscore">4.5</div>
                     </div>
                     
                     <table class="metadata">
@@ -103,7 +118,7 @@
                                 $counter2 = 1;
                                 foreach ($critiques as $critique)
                                 {
-                                    print("<div align='center'><strong>{$counter2}</strong></div><h2><strong>");
+                                    print("<div align='center'><div class='critiquenumber'>{$counter2}</div></div><h2><strong>");
                                     print(htmlspecialchars($critiques[$counter]["writer"]));
                                     print("</strong></h2><br><h3>&nbsp written on &nbsp");
                                     print(htmlspecialchars($critiques[$counter]["date"]));
