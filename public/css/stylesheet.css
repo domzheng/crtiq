@@ -1626,6 +1626,22 @@ td.data-title{
 	display: inline-block;
 	overflow: scroll;
 	padding-top: 50px;
+
+	opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-delay: 0.2s;
+	-moz-animation-delay: 0.2s;
+	animation-delay: 0.2s;
 }
 
 .others-users-block{
@@ -1636,7 +1652,7 @@ td.data-title{
 	background-size: cover;
 	background-color: rgba(0,0,0);
 	background-position-y:25%; 
-	opacity: .7;
+	opacity: .75;
 }
 
 .others-users-block::before {
@@ -1750,6 +1766,21 @@ td.data-title{
 	text-align: center;
 	font-family: "Rockwell", sans-serif;
 	margin-top: 10px;
+}
+
+.others_gallery_container a:link{
+	color: #DADADA;
+	text-decoration: none;
+}
+
+.others_gallery_container a:visited{
+	color: #DADADA;
+	text-decoration: none;
+}
+
+.others_gallery_container a:hover{
+	color: white;
+	text-decoration: none;
 }
 
 .others-users-info{

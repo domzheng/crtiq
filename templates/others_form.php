@@ -29,9 +29,9 @@
         print("<div class=\"others-users-block\" style=\"background-image: url('{$activeuser['backgroundimgurl']}');\">");
           print("<div class=\"others-elements-block\">");
             print("<div class=\"others-gallery-user\">");
-              print("<span class=\"others-users-name\">{$activeuser['fullname']}</span>");
+              print("<a href=\"others.php?user_id={$activeuser['id']}\"><span class=\"others-users-name\">{$activeuser['fullname']}</span></a>");
               if (!empty($activeuser['profile_url'])){
-                print("<div class=\"others-users-icon\" style=\"background-image:url('{$activeuser['profile_url']}')\"></div>");
+                print("<a href=\"others.php?user_id={$activeuser['id']}\"><div class=\"others-users-icon\" style=\"background-image:url('{$activeuser['profile_url']}')\"></div></a>");
               }
               else{
                 print("<div class=\"others-users-icon\" style=\"background-image:url('img/man-silhouette-svg-med-copy.png')\"></div>");
