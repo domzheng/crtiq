@@ -72,7 +72,7 @@
                     
                     <h1>RATINGS</h1>
                     
-                    <div class="scoreoverall">
+                    <div class="scoreoverall" <?php print("style=\"background-color: rgba(0,255,255,1)\">");?>
                         overall &nbsp&nbsp&nbsp<font style="color:white">8.5</font>
                     </div>
 
