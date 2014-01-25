@@ -37,7 +37,7 @@
             <h3><?=htmlspecialchars($image_data["date"])?></h3>
 
             <div class="detailsicon">
-                <span class="hint--top" <?php print("data-hint=\"CAMERA&#10;{$image_data["camera"]}&#10;&#10;LENS&#10;{$image_data["lens"]}&#10;&#10;APERTURE&#10;{$image_data["aperture"]}&#10;&#10;SHUTTER&#10;{$image_data["shutter"]}&#10;&#10;ISO&#10;{$image_data["iso"]}\">")?><img src= "img/hovercamera.png" title=""></a></span>
+                <span class="hint--top" data-hint="CAMERA&#10;<?php if (!empty($image_data["camera"])): print("&nbsp;&nbsp;&nbsp;{$image_data["camera"]}"); else: print("unspecified"); endif?>&#10;&#10;LENS&#10;<?php if (!empty($image_data["lens"])): print("&nbsp;&nbsp;&nbsp;{$image_data["lens"]}"); else: print("unspecified"); endif?>&#10;&#10;APERTURE&#10;<?php if (!empty($image_data["aperture"])): print("&nbsp;&nbsp;&nbsp;{$image_data["aperture"]}"); else: print("unspecified"); endif?>&#10;&#10;SHUTTER&#10;<?php if (!empty($image_data["shutter"])): print("&nbsp;&nbsp;&nbsp;{$image_data["shutter"]}"); else: print("unspecified"); endif?>&#10;&#10;ISO&#10;<?php if (!empty($image_data["iso"])): print("&nbsp;&nbsp;&nbsp;{$image_data["iso"]}"); else: print("unspecified"); endif?>"><img src= "img/hovercamera.png" title=""></a></span>
             </div>
 
         </div>

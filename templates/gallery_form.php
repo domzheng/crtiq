@@ -1,6 +1,5 @@
 <body>
 <div class="darkener"></div>
-
 <script>
   $.backstretch([
     '<?= htmlspecialchars($background_url) ?>'
@@ -92,12 +91,18 @@
               }
           ?>
           <?php
-            if(isset($session_id)){
+            if(isset($session_id))
+            {
               if ($user_id == $session_id)
               {
                   print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
               }
             }
+            elseif ($athome == 1)
+            {
+                print("<a href=\"upload.php\" class=\"gallery-img\" style=\"background-image: url('img/upload_gallery_plus.png');\" title=\"Upload a new photograph.\"></a>");
+            }
+
           ?>  
       </div>
     </div>

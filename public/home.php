@@ -15,13 +15,15 @@
         $user_info["splitname"] = explode(" ", $user_info["fullname"]);
         if (empty($user_images))
         {
+            $athome = 1;
             $background_url = query("SELECT url FROM images ORDER BY RAND() LIMIT 1")[0]["url"];
-            render("gallery_form.php", ["title" => "Welcome", "user_images" => [], "user_info" => $user_info, "background_url" => $background_url]);
+            render("gallery_form.php", ["title" => "Welcome", "user_images" => [], "user_info" => $user_info, "background_url" => $background_url, "athome" => $athome]);
             exit;
         }
         else
         {
-            render("gallery_form.php", ["title" => "Welcome", "user_images" => $user_images, "user_info" => $user_info, "background_url" => $background_url]);
+            $athome = 1;
+            render("gallery_form.php", ["title" => "Welcome", "user_images" => $user_images, "user_info" => $user_info, "background_url" => $background_url, "athome" => $athome]);
             exit;
         }
     }
