@@ -9,7 +9,7 @@
     }
     
     // if form was submitted
-    $user_images = query("SELECT id, url, title FROM images WHERE user_id != ? ORDER BY RAND()", $_SESSION["id"]);
+    $user_images = query("SELECT id, url, title FROM images WHERE user_id != ? ORDER BY id DESC LIMIT 9", $_SESSION["id"]);
     $background_url = query("SELECT url FROM images WHERE user_id != ? ORDER BY RAND() LIMIT 1", $_SESSION["id"])[0]["url"];
     if (empty($user_images))
     {

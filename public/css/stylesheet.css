@@ -812,7 +812,7 @@ textarea.descriptionfield::-webkit-input-placeholder {
 	width: 125px;
 	height: 125px;
 	background-size: cover;
-	background-position: center center;
+	background-position-x: center;
 	border-top-left-radius: 50% 50%;
 	border-bottom-left-radius: 50% 50%;
 	border-top-right-radius: 50% 50%;
@@ -1387,6 +1387,12 @@ td.data-title{
 	font-style: italic;
 }
 
+.browsecontainer{
+	width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .critique-text-button{
     margin-right: auto;
     margin-left: auto;
@@ -1615,6 +1621,26 @@ hr{
 	line-height: 18.700000762939453px !important;
 }
 
+.getmoreimg{
+	width: 200px;
+	height: 75px;
+	background-color: rgba(200,200,200,.5);
+	border-color: transparent;
+	color: white;
+	margin-top: 45px;
+	margin-bottom: 67px;
+	margin-left: 400px;
+	font-weight: 200;
+}
+
+.getmoreimg:hover{
+	background-color: rgba(200,200,200,.7);
+}
+
+.getmoreimg:active{
+	background-color: rgba(200,200,200,.8);
+}
+
 /*.inside{
 	width: 50%;
 	height: 50%;
@@ -1632,6 +1658,10 @@ hr{
 	position: absolute;
 	top: 50%;
 }*/
+
+button:focus{
+	outline: none;
+}
 
 input:focus{
 	outline: none;

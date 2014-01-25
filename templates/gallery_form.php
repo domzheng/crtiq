@@ -11,19 +11,22 @@
   });
 </script>
 <script type='text/javascript'>
-//     $(document).ready(function(){
-//         $("div.a").hover(
-//         function() {
-//             $(this).stop().animate({"opacity": ".4"}, "slow");
-//             $(this).find('.message').fadeIn(600);
-//         },
-//         function() {
-//              $(this).stop().animate({"opacity": "1"}, "slow");
-//              $(this).find('.message').fadeOut(500);
-//         });
-
-//     });
-// </script>
+    $(document).ready(function(){
+        console.log("loaded!");
+        var iterations = 0;
+        $("#more").click(function(){
+          console.log("clicked!");
+          $.post("moregalleryimg.php",
+          {
+            iterationnum: iterations,
+          },
+          function(data,status){
+            iterations++;
+            console.log(JSON.parse(data));
+          });
+        });
+    });
+</script>
 
 <div id="container">
   <!-- === === === === === HEADER === === === === === -->
@@ -100,6 +103,7 @@
     </div>
   <?php else: ?>
     <div class="gallery_container">
+        <div class="browsecontainer">
         <?php
             foreach($user_images as $image)
             {
@@ -107,6 +111,8 @@
                 print("<span class='message'>{$image["title"]}</span></a>");
             }
         ?>
+        <div style="width:100%;"><button id="more" class="getmoreimg">GET MORE IMAGES</button></div>
+      </div>
     </div>
   <?php endif ?>
 </div>
