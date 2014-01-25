@@ -1449,7 +1449,7 @@ td.data-title{
 	margin-top: -12px;
 	margin-bottom: 14px;
 	font-size: 40px;
-	font-family: helvetica neue;
+	font-family: 'Helvetica', sans-serif;
 	font-weight: 500;
 	line-height: 55px;
 	color: rgba(255,255,255,0.5);
@@ -1479,7 +1479,7 @@ td.data-title{
 .scorecompositionscore{
 	display: inline-block;
 	float: right;
-	background-color: rgba(146,95,95,1);
+	/*background-color: rgba(146,95,95,1);*/
 	width: 48px;
 	height: 100%;
 	text-align: center;
@@ -1509,7 +1509,7 @@ td.data-title{
 .scorecolorscore{
 	display: inline-block;
 	float: right;
-	background-color: rgba(146,95,95,1);
+	/*background-color: rgba(146,95,95,1);*/
 	width: 48px;
 	height: 100%;
 	text-align: center;
@@ -1539,7 +1539,7 @@ td.data-title{
 .scoreeditingscore{
 	display: inline-block;
 	float: right;
-	background-color: rgba(146,95,95,1);
+	/*background-color: rgba(146,95,95,1);*/
 	width: 48px;
 	height: 100%;
 	text-align: center;

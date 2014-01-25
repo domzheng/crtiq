@@ -72,33 +72,67 @@
                     
                     <h1>RATINGS</h1>
                     
-                    <div class="scoreoverall" <?php print("style=\"background-color: rgba(0,255,255,1)\">");?>
-                        overall &nbsp&nbsp&nbsp<font style="color:white">8.5</font>
+                    <div class="scoreoverall" 
+                        <?php if ($average["overallavg"] <= 3): 
+                        print("style=\"background-color: rgba(146,95,95,.9)\"");
+                        elseif ($average["overallavg"] >= 7):
+                        print("style=\"background-color: rgba(95,129,95,.9)\"");    
+                        elseif ($average["overallavg"] > 3 and $average["overallavg"] < 7):
+                        print("style=\"background-color: rgba(183,183,166,.65)\"");         
+                        endif?>>
+                        overall&nbsp&nbsp&nbsp&nbsp<font style="color:white"><?php print("{$average["overallavg"]}");?></font>
                     </div>
 
                     <div class="scorecomposition">
                         <div class="scorecompositiontitle">composition</div>
-                        <div class="scorecompositionscore">9.2</div>
+                        <div class="scorecompositionscore"
+                            <?php if ($average["compositionavg"] <= 3): 
+                            print("style=\"background-color: rgba(146,95,95,.9)\"");
+                            elseif ($average["compositionavg"] >= 7):
+                            print("style=\"background-color: rgba(95,129,95,.9)\"");    
+                            elseif ($average["compositionavg"] > 3 and $average["compositionavg"] < 7):
+                            print("style=\"background-color: rgba(183,183,166,.65)\"");         
+                            endif?>>
+                            <?php print("{$average["compositionavg"]}");?>
+                        </div>
                     </div>
 
                     <div class="scorecolor">
                         <div class="scorecolortitle">color</div>
-                        <div class="scorecolorscore">4.5</div>
+                        <div class="scorecolorscore"
+                            <?php if ($average["coloravg"] <= 3): 
+                            print("style=\"background-color: rgba(146,95,95,.9)\"");
+                            elseif ($average["coloravg"] >= 7):
+                            print("style=\"background-color: rgba(95,129,95,.9)\"");    
+                            elseif ($average["coloravg"] > 3 and $average["coloravg"] < 7):
+                            print("style=\"background-color: rgba(183,183,166,.65)\"");         
+                            endif?>>
+                            <?php print("{$average["coloravg"]}");?>
+                        </div>
                     </div>
 
                     <div class="scoreediting">
                         <div class="scoreeditingtitle">editing</div>
-                        <div class="scoreeditingscore">4.5</div>
+                        <div class="scoreeditingscore"
+                            <?php if ($average["editingavg"] <= 3): 
+                            print("style=\"background-color: rgba(146,95,95,.9)\"");
+                            elseif ($average["editingavg"] >= 7):
+                            print("style=\"background-color: rgba(95,129,95,.9)\"");    
+                            elseif ($average["editingavg"] > 3 and $average["editingavg"] < 7):
+                            print("style=\"background-color: rgba(183,183,166,.65)\"");         
+                            endif?>>
+                            <?php print("{$average["editingavg"]}");?>
+                        </div>
                     </div>
                     
                     <table class="metadata">
                         <tr>
                             <td class="data-title">LIKES &nbsp</td>
-                            <td style="text-align: right;"><?=htmlspecialchars($image_data["likes"])?></td>
+                            <td style="text-align: right; color: rgba(95,129,95,1); font-weight: bold"><?=htmlspecialchars($image_data["likes"])?></td>
                         </tr>
                         <tr>
                             <td class="data-title">DISLIKES &nbsp</td>
-                            <td style="text-align: right;"><?=htmlspecialchars($image_data["dislikes"])?></td>
+                            <td style="text-align: right; color: rgba(146,95,95,1); font-weight: bold"><?=htmlspecialchars($image_data["dislikes"])?></td>
                         </tr>
                     </table>
                     </div>
