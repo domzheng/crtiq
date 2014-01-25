@@ -11,16 +11,11 @@
 </script>
 <script type='text/javascript'>
     $(document).ready(function(){
-        $("div.a").hover(
-        function() {
-            $(this).stop().animate({"opacity": ".4"}, "slow");
-            $(this).find('.message').fadeIn(600);
-        },
-        function() {
-             $(this).stop().animate({"opacity": "1"}, "slow");
-             $(this).find('.message').fadeOut(500);
+        $('#file').change(function(){
+            var imagename = $(this).val();
+            var array = imagename.split("\\");
+            $('#imagelabelreadonly').val(array[array.length-1]);
         });
-
     });
 </script>
 
@@ -77,7 +72,6 @@
             <p class="about-me"><?=$user_info["description"]?></p>
         <?php endif ?>
     </div>
-
     <!-- === === === === === PROFILE FORM === === === === === -->
     <div class="profile_container">
       <div id="profileform">
@@ -87,11 +81,11 @@
                       <p class='apologyupload'><?= htmlspecialchars($message)?></p>
                   <?php endif ?>
                   <div class="upload-title-container">
-                      <input type="text" name="uploadreadonly" placeholder="Upload a new Photo" class="white-trans" readonly></input>
+                      <input type="text" id="imagelabelreadonly" name="uploadreadonly" value="" placeholder="Upload a new profile picture" class="white-trans"></input>
                   </div>
                   <label class="filebutton">
                     +
-                    <span><input type="file" name="profilepic" id="file"></input></span>
+                    <span><input type="file" id="file" name="profilepic"></input></span>
                   </label>
 
                   <div class="upload-input-container">
