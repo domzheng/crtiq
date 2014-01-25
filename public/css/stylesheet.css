@@ -1122,12 +1122,24 @@ p.userchecks{
 	width: 916.5px !important;
 }
 
-.detailsicon{
+.predetailsicon{
 	margin-top: -5.5%;
 	margin-right: 6%;
 	float: right;	
 	z-index: 999;
 	display: block;
+}
+
+.detailsicon{
+	margin-top: -8%;
+	float: right;	
+	z-index: 999;
+	display: block;
+}
+
+.detailsicon img{
+	width: 80%;
+	height: auto;
 }
 
 /*.detailsicon a:hover:after{
@@ -1183,7 +1195,7 @@ p.userchecks{
 	font-weight: bolder;
 	font-size: 14px;
 	letter-spacing: px;
-	margin-left: 10%;
+	text-align: center;
 }
 
 .data p{
@@ -1342,16 +1354,19 @@ td.data-title{
 	display: inline-block;
 	overflow: hidden;
 	text-align: center;
+	margin-bottom: 10%;
 }
 
 .up{
-	margin-left: 100px;
+	float: left;
+	margin-left: 25%;
 	background-image: url('../img/thumbs-up.png');
 	background-size: cover;
 }
 
 .down{
-	margin-left: 50px;
+	float: right;
+	margin-right: 25%;
 	background-image: url('../img/thumbs-down.png');
 	background-size: cover;
 }
@@ -1382,6 +1397,29 @@ td.data-title{
 	margin-top: 0 !important;
 	padding-bottom: 0;
 	letter-spacing: 3px;
+}
+
+.critique_display h2{
+	margin-bottom: -2px;
+}
+
+.critique_display h3{
+	margin-left: 8%;
+	margin-top: 0px;
+	margin-bottom: 5%;
+}
+
+.scoreoverall{
+	width: 80%;
+	height: 55px;
+	background-color: rgba(146,95,95,.9);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -12px;
+	font-size: 45px;
+	font-family: helvetica neue;
+	font-weight: 500;
+	color: rgba(255,255,255,0.5);
 }
 
 .browsemessage{

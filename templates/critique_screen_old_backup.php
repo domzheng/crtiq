@@ -58,32 +58,24 @@
                     <div class="description">
                         <h1>DESCRIPTION</h1>
                         <div class="scrollbox"><p><?=htmlspecialchars($image_data["description"]);?></p></div>
-                        <table class="metadata">
-                            <?php if (!empty($image_data["location"])): ?>
-                            <tr>
-                                <td class="data-title">LOCATION &nbsp</td>
-                                <td style="text-align: right;"><?=htmlspecialchars($image_data["location"])?></td>
-                            </tr>
-                            <?php endif ?>
-                        </table>
                     </div>
                     <hr size=".1px" align="center">
                     <div class="shot-details">
-                    
-                    <h1>RATINGS</h1>
-                    
-                    <div class="scoreoverall">
-                        overall &nbsp <font style="color:white">8.5</font>
-                    </div>
-                    
+                    <h1>SHOT DETAILS</h1>
                     <table class="metadata">
+                        <?php if (!empty($image_data["location"])): ?>
+                        <tr>
+                            <td class="data-title">LOCATION &nbsp</td>
+                            <td><?=htmlspecialchars($image_data["location"])?></td>
+                        </tr>
+                        <?php endif ?>
                         <tr>
                             <td class="data-title">LIKES &nbsp</td>
-                            <td style="text-align: right;"><?=htmlspecialchars($image_data["likes"])?></td>
+                            <td><?=htmlspecialchars($image_data["likes"])?></td>
                         </tr>
                         <tr>
                             <td class="data-title">DISLIKES &nbsp</td>
-                            <td style="text-align: right;"><?=htmlspecialchars($image_data["dislikes"])?></td>
+                            <td><?=htmlspecialchars($image_data["dislikes"])?></td>
                         </tr>
                     </table>
                     </div>
@@ -105,7 +97,7 @@
                                 {
                                     print("<div align='center'><strong>{$counter2}</strong></div><h2><strong>");
                                     print(htmlspecialchars($critiques[$counter]["writer"]));
-                                    print("</strong></h2><br><h3>&nbsp written on &nbsp");
+                                    print("</strong>,</h2><h3>&nbsp written on &nbsp");
                                     print(htmlspecialchars($critiques[$counter]["date"]));
                                     print("</h3><div style='opacity: .8;'><p style='margin-bottom:0px; font-weight:bolder;'>Composition: &nbsp");
                                     print(htmlspecialchars($critiques[$counter]["compositionrating"]));
