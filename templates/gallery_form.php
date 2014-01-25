@@ -11,19 +11,47 @@
 </script>
 <script type='text/javascript'>
     $(document).ready(function(){
-        console.log("loaded!");
-        var iterations = 0;
-        $("#more").click(function(){
-          console.log("clicked!");
-          $.post("moregalleryimg.php",
-          {
-            iterationnum: iterations,
-          },
-          function(data,status){
-            iterations++;
-            console.log(JSON.parse(data));
-          });
-        });
+        var finished = 0;
+        var iterations = 1;
+        $('#bigdiv').bind('scroll', function()
+                          {
+                            if($(this).scrollTop() + 
+                               $(this).innerHeight()
+                               >= $(this)[0].scrollHeight)
+                            {
+                              console.log('end reached');
+                              if(finished == 0)
+                              {
+                                $.post("moregalleryimg.php",
+                                {
+                                  iterationnum: iterations,
+                                },
+                                function(data,status){
+                                  iterations++;
+                                  var parsedata = JSON.parse(data);
+                                  if("done" in parsedata)
+                                    {
+                                      finished = 1;
+                                      for (var i=0,len=((Object.keys(parsedata).length)-1); i<len; i++)
+                                      {
+                                          var toadd = "<a href=critique.php?image_id='" + parsedata[i]["id"] + "' class='gallery-img' style=\"background-image: url(\'" 
+                                                    + parsedata[i]["url"] + "\');\"><span class='message'>" + parsedata[i]["title"] + "</span></a>";
+                                          $('#toaddto').append(toadd);
+                                      }
+                                    }
+                                  else
+                                    {
+                                      for (var i=0,len=parsedata.length; i<len; i++)
+                                      {
+                                          var toadd = "<a href=critique.php?image_id='" + parsedata[i]["id"] + "' class='gallery-img' style=\"background-image: url(\'" 
+                                                    + parsedata[i]["url"] + "\');\"><span class='message'>" + parsedata[i]["title"] + "</span></a>";
+                                          $('#toaddto').append(toadd);
+                                      }
+                                    }
+                                });
+                              }
+                            }
+                          });
     });
 </script>
 
@@ -107,17 +135,17 @@
       </div>
     </div>
   <?php else: ?>
-    <div class="gallery_container">
-        <div class="browsecontainer">
-        <?php
+    <div id="bigdiv" class="gallery_container">
+        <div id="toaddto" class="browsecontainer">
+            <?php
             foreach($user_images as $image)
             {
                 print("<a href=\"critique.php?image_id={$image['id']}\" class=\"gallery-img\" style=\"background-image: url('{$image["url"]}')\">");
                 print("<span class='message'>{$image["title"]}</span></a>");
             }
-        ?>
-        <div style="width:100%;"><button id="more" class="getmoreimg">GET MORE IMAGES</button></div>
-      </div>
+            ?>
+        </div>
+        <div class ="spacer"></div>
     </div>
   <?php endif ?>
 </div>
