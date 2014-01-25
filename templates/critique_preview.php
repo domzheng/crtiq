@@ -24,24 +24,20 @@
     </div>
 
     <!-- === === === === === WELCOME === === === === === -->
-    <div class="display">
-        <div class="image_container">
-             <img src="http://crtiq.com/img/background/bird.jpg">
+    <div class="previewdisplay">
+        <div class="preview_image_container">
+            <img src="http://crtiq.com/img/background/bird.jpg">
         </div>
         
-        <div class="fixed_label"> </div>
+        <div class="fixed_label">
 
-        <div class="image_label">
-            <h1> Lumos </h1>
-            <h2> by Harry Potter </h2>
+            <h1> Lumos </h1><h2> by Harry Potter </h2><br>
             <h3> March 10 2013 </h3>
-        </div>
 
-        <div class="detailsicon">
-            <!-- <a href="#" title="Camera -&#10;Nikon D7000X
-            Lens:
-            40mm"> -->
-            <span class="hint--top" data-hint="Camera: Nikon D60&#10;&#10;Lens: 40mm&#10;&#10;Aperture: f/2.4&#10;&#10;Shutter:1/250&#10;&#10;ISO:200"><img src= "img/hovercamera.png" title=""></a></span>
+            <div class="detailsicon">
+                <span class="hint--top" data-hint="CAMERA&#10;<?php print("");?>&#10;&#10;LENS&#10;40mm&#10;&#10;APERTURE&#10;f/2.4&#10;&#10;SHUTTER&#10;1/250&#10;&#10;ISO&#10;200"><img src= "img/hovercamera.png" title=""></a></span>
+            </div>
+
         </div>
 
     </div>

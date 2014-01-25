@@ -49,7 +49,7 @@
         <div class="fptitle">
           <?php
             print("<a href=\"critique.php?image_id={$backgroundimage[4]}\"><h1 class=\"login-label\">{$backgroundimage[1]}</h1></a>");
-            print("<h2>{$backgroundimage[2]}</h2>");
+            print("<a href=\"others.php?user_id={$backgroundimage[5]}\"><h2>{$backgroundimage[2]}</h2></a>");
           ?>
         </div>
     </div>
