@@ -129,8 +129,28 @@
             $critiques[$counter]["writer"] = query("SELECT fullname FROM users WHERE id = ?", $critique["writer_id"])[0]["fullname"];
             $counter++;
         }
+        $compositionsum = 0;
+        $colorsum = 0;
+        $editingsum = 0;
+        foreach($critiques as $critique){
+            $compositionsum += $critique["compositionrating"];
+            $colorsum += $critique["colorsrating"];
+            $editingsum += $critique["editingrating"];
+        }
+        $num = sizeof($critiques);
+        $compositionavg = round(($compositionsum/$num),1);
+        $coloravg = round(($colorsum/$num),1);
+        $editingavg = round(($editingsum/$num),1);
+        $overallavg = round((($compositionavg + $coloravg + $editingavg) / 3), 1);
+        $average = [
+            "compositionavg" => $compositionavg,
+            "coloravg" => $coloravg,
+            "editingavg" => $editingavg,
+            "overallavg" => $overallavg
+        ];
+
         render("critique_screen.php", ["title" => "Submit a Critique!", "image_data" => $image_data, 
-               "artist_data" => $artist_data, "critiques" => $critiques]);
+               "artist_data" => $artist_data, "critiques" => $critiques, "average" => $average]);
         exit;
     }
     // if quality is also set, render form if valid or render the same as above if invalid
