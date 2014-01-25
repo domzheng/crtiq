@@ -1,3 +1,25 @@
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+#login{
+    opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-delay: 0.7s;
+	-moz-animation-delay: 0.7s;
+	animation-delay: 0.7s;
+}
+
 body{
 	background-color: black;
 	width: 100%;
@@ -602,17 +624,17 @@ textarea.descriptionfield::-webkit-input-placeholder {
     font-family: "Helvetica", sans-serif;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 17px;
-    text-shadow: 2px 2px #000000;	
+    font-size: 17px;	
     -webkit-transition:background-color 0.5s linear;
-   -moz-transition: background-color 0.5s linear;
-   -o-transition: background-color 0.5s linear;
-
-   background:#000;
+	-moz-transition: background-color 0.5s linear;
+	-o-transition: background-color 0.5s linear;
+	background: rgba(0,0,0,0);
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .fptitle h1:hover{
-	background: #ff0;
+	background: rgba(255,255,255,.25);
 }
 
 .fptitle h2{
@@ -622,6 +644,15 @@ textarea.descriptionfield::-webkit-input-placeholder {
     font-weight: lighter;
     letter-spacing: 1px;
     font-size: 14px;
+    -webkit-transition:background-color 0.5s linear;
+	-moz-transition: background-color 0.5s linear;
+	-o-transition: background-color 0.5s linear;
+	background: rgba(0,0,0,0);
+	padding-left: 10px;
+}
+
+.fptitle h2:hover{
+	background: rgba(255,255,255,.25);
 }
 
 .fptitle a:link{
@@ -934,6 +965,22 @@ p.userchecks{
 	margin-top: 50px;
 	overflow: hidden;
 	display: block;
+
+	opacity:0;  /* make things invisible upon start */
+    -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+ 
+    -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+ 
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-delay: 0.7s;
+	-moz-animation-delay: 0.7s;
+	animation-delay: 0.7s;
 }
 
 .image_container{
